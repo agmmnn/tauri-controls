@@ -6,12 +6,14 @@ import EsLint from "vite-plugin-linter"
 import tsConfigPaths from "vite-tsconfig-paths"
 const { EsLinter, linterPlugin } = EsLint
 import * as packageJson from "./package.json"
+import typescript from "@rollup/plugin-typescript"
 
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
   plugins: [
     dts({
       include: ["src/component/"],
+      rollupTypes: true,
     }),
     react(),
     tsConfigPaths(),
@@ -25,6 +27,7 @@ export default defineConfig((configEnv) => ({
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
+      plugins: [typescript({ tsconfig: "./tsconfig.json" })],
     },
   },
 }))

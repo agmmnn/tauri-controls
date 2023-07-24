@@ -1,5 +1,8 @@
+import { SVGProps } from "react"
+import { JSX } from "react/jsx-runtime"
+
 export const Icons = {
-  minimizeWin: (props) => (
+  minimizeWin: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
       width="10"
       height="1"
@@ -15,7 +18,7 @@ export const Icons = {
       />
     </svg>
   ),
-  maximizeWin: (props) => (
+  maximizeWin: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
       width="10"
       height="10"
@@ -31,7 +34,7 @@ export const Icons = {
       />
     </svg>
   ),
-  maximizeRestoreWin: (props) => (
+  maximizeRestoreWin: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
       width="10"
       height="11"
@@ -47,7 +50,7 @@ export const Icons = {
       />
     </svg>
   ),
-  closeWin: (props) => (
+  closeWin: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
       width="10"
       height="10"
@@ -63,7 +66,7 @@ export const Icons = {
       />
     </svg>
   ),
-  closeMac: (props) => (
+  closeMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
       width="8"
       height="8"
@@ -78,7 +81,7 @@ export const Icons = {
       />
     </svg>
   ),
-  minMac: (props) => (
+  minMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg width="8" viewBox="0 0 17 6" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g clipPath="url(#clip0_20_2051)">
         <path
@@ -90,7 +93,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  fullMac: (props) => (
+  fullMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg width="8" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g clipPath="url(#clip0_20_2057)">
         <path
@@ -102,7 +105,7 @@ export const Icons = {
       </g>
     </svg>
   ),
-  plusMac: (props) => (
+  plusMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg width="8" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g clipPath="url(#clip0_20_2053)">
         <path

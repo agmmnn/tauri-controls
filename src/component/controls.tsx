@@ -55,12 +55,13 @@ export function Windows({ className, ...props }: any) {
   )
 }
 
-export function MacOS({ className, ...props }) {
+export function MacOS({ className, ...props }: React.HTMLProps<HTMLDivElement>) {
   const [isWindowMaximized, setIsWindowMaximized] = useState(false)
   const [isAltKeyPressed, setIsAltKeyPressed] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
 
   const last = isAltKeyPressed ? <Icons.plusMac /> : <Icons.fullMac />
+
   const handleMouseEnter = () => {
     setIsHovering(true)
   }
@@ -68,12 +69,12 @@ export function MacOS({ className, ...props }) {
     setIsHovering(false)
   }
 
-  const handleAltKeyDown = (e) => {
+  const handleAltKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Alt") {
       setIsAltKeyPressed(true)
     }
   }
-  const handleAltKeyUp = (e) => {
+  const handleAltKeyUp = (e: KeyboardEvent) => {
     if (e.key === "Alt") {
       setIsAltKeyPressed(false)
     }
@@ -133,8 +134,8 @@ export function MacOS({ className, ...props }) {
         {isHovering && <Icons.minMac />}
       </Button>
       <Button
-        onKeyDown={handleAltKeyDown}
-        onKeyUp={handleAltKeyUp}
+        // onKeyDown={handleAltKeyDown}
+        // onKeyUp={handleAltKeyUp}
         onClick={isAltKeyPressed ? maximizeWindow : fullscreenWindow}
         className="m-0 aspect-square h-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#28c93f] p-0 text-center text-[#006500] hover:bg-[#28c93f] active:bg-[#1e9930] active:text-[#003000] dark:border-none"
       >
@@ -144,7 +145,7 @@ export function MacOS({ className, ...props }) {
   )
 }
 
-export function Gnome({ className, ...props }) {
+export function Gnome({ className, ...props }: React.HTMLProps<HTMLDivElement>) {
   const [isWindowMaximized, setIsWindowMaximized] = useState(false)
 
   const updateIsWindowMaximized = useCallback(async () => {

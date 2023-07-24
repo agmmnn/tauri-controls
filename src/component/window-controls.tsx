@@ -5,15 +5,16 @@ import { cn } from "../lib/utils"
 import { MacOS, Gnome, Windows } from "./controls"
 
 export interface IWindowControls {
-  platform?: string
+  platform?: "windows" | "macos" | "gnome"
+  className?: string
 }
 
-export const WindowControls = ({ platform = "cross", ...props }: IWindowControls) => {
+export const WindowControls = ({ platform, className, ...props }: IWindowControls) => {
   const [osType, setOsType] = useState("")
 
-  const windows = <Windows className {...props} />
-  const macos = <MacOS className {...props} />
-  const gnome = <Gnome className {...props} />
+  const windows = <Windows className={className} {...props} />
+  const macos = <MacOS className={className} {...props} />
+  const gnome = <Gnome className={className} {...props} />
 
   useEffect(() => {
     async function fetchOsType() {
