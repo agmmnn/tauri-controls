@@ -2,7 +2,7 @@
   "name": "tauri-controls",
   "description": "Native 'looking' window controls for Tauri 2.",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,13 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
-    "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc",
-    "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
