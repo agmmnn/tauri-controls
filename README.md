@@ -88,8 +88,12 @@ You can also pass additional `props` to elements like `data-tauri-drag-region` f
 
 # To-Do
 
+If the library gets some interest, I can gradually add the following features:
+
 - [ ] Add declaration file.
 - [ ] Detect disabled window controls (is_maximizable, ...) and disable the buttons accordingly.
+- [ ] Disable icons option for macOs.
+- [ ] Svelte/SvelteKit implementation.
 
 ## Figma
 
