@@ -86,6 +86,11 @@ You can also pass additional `props` to elements like `data-tauri-drag-region` f
 
 ![](https://i.imgur.com/hq389kn.png)
 
+# To-Do
+
+- [ ] Add declaration file.
+- [ ] Detect disabled window controls (is_maximizable, ...) and disable the buttons accordingly.
+
 ## Figma
 
 Check out the design implementation on Figma for a visual reference. [Desktop Native Window Controls - Figma](https://www.figma.com/file/ms2vbZx5lEGxHqHR8fAfQm/Desktop-Native-Window-Controls?type=design&node-id=4%3A6020&mode=design&t=PIbVTsr8zWmIFsNr-1).
