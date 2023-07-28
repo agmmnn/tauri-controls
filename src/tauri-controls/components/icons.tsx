@@ -1,5 +1,4 @@
-import { SVGProps } from "react"
-import { JSX } from "react/jsx-runtime"
+import type { SVGProps } from "react"
 
 export const Icons = {
   minimizeWin: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
@@ -34,7 +33,9 @@ export const Icons = {
       />
     </svg>
   ),
-  maximizeRestoreWin: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
+  maximizeRestoreWin: (
+    props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+  ) => (
     <svg
       width="10"
       height="11"
@@ -82,7 +83,13 @@ export const Icons = {
     </svg>
   ),
   minMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-    <svg width="8" viewBox="0 0 17 6" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="8"
+      viewBox="0 0 17 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <g clipPath="url(#clip0_20_2051)">
         <path
           fillRule="evenodd"
@@ -94,7 +101,13 @@ export const Icons = {
     </svg>
   ),
   fullMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-    <svg width="8" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="8"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <g clipPath="url(#clip0_20_2057)">
         <path
           fillRule="evenodd"
@@ -106,7 +119,13 @@ export const Icons = {
     </svg>
   ),
   plusMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
-    <svg width="8" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="8"
+      viewBox="0 0 17 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <g clipPath="url(#clip0_20_2053)">
         <path
           fillRule="evenodd"

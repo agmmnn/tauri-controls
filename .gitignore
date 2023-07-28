@@ -24,3 +24,5 @@ others
 *.njsproj
 *.sln
 *.sw?
+
+src-tauri/target

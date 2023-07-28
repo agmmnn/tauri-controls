@@ -1,16 +1,27 @@
 {
   "name": "tauri-controls",
-  "description": "Native 'looking' window controls for Tauri 2.",
+  "description": "🚥 Native-looking window controls for Tauri 2.",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.5",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agmmnn/tauri-controls"
+  },
+  "keywords": [],
+  "author": "agmmnn",
+  "bugs": {
+    "url": "https://github.com/agmmnn/tauri-controls/issues"
+  },
+  "homepage": "https://github.com/agmmnn/tauri-controls#readme",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
-    "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc"
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write . --ignore-path .gitignore --config ./prettier.config.cjs",
+    "tauri": "tauri"
   },
   "files": [
     "dist"
@@ -25,31 +36,32 @@
   "main": "./dist/tauri-controls.umd.js",
   "module": "./dist/tauri-controls.es.js",
   "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@tauri-apps/api": "2.0.0-alpha.5",
+    "clsx": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.14.0"
+  },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.2",
-    "@tauri-apps/plugin-os": "2.0.0-alpha.0",
-    "@tauri-apps/plugin-window": "2.0.0-alpha.0",
-    "@types/node": "^20.4.4",
-    "@types/react": "^18.2.16",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@tauri-apps/cli": "^2.0.0-alpha.10",
+    "@types/node": "^20.4.5",
+    "@types/react": "^18.2.17",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
-    "@vitejs/plugin-react": "^4.0.3",
-    "clsx": "^2.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "autoprefixer": "^10.4.14",
     "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
+    "postcss": "^8.4.27",
     "prettier": "^3.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwind-merge": "^1.14.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
     "vite": "^4.4.7",
     "vite-plugin-dts": "^3.3.1",
@@ -63,16 +75,5 @@
     "react": ">=17.x",
     "react-dom": ">=17.x",
     "tailwind-merge": "^1.14.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agmmnn/tauri-controls"
-  },
-  "keywords": [],
-  "author": "agmmnn",
-  "bugs": {
-    "url": "https://github.com/agmmnn/tauri-controls/issues"
-  },
-  "homepage": "https://github.com/agmmnn/tauri-controls#readme",
-  "license": "MIT"
+  }
 }

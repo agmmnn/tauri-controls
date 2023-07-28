@@ -82,7 +82,11 @@ You can also pass additional `props` to elements like `data-tauri-drag-region` f
 ![](https://i.imgur.com/OAO22HC.png)
 
 ```tsx
-<WindowControls platform="windows" className="w-full justify-end" data-tauri-drag-region />
+<WindowControls
+  platform="windows"
+  className="w-full justify-end"
+  data-tauri-drag-region
+/>
 ```
 
 ![](https://i.imgur.com/hq389kn.png)
@@ -92,10 +96,9 @@ You can also pass additional `props` to elements like `data-tauri-drag-region` f
 If the library gets some interest, I can gradually add the following features:
 
 - [ ] Detect disabled window controls (is_maximizable, ...) and disable the buttons accordingly.
-- [ ] 'Hide icons' option for macOS.
 - [ ] Svelte/SvelteKit implementation.
 - [ ] Next.js support.
-- [ ] When no platform is specified, also automatically determine the side of the controls. (e.g. macOS left, others right)
+- [x] When no platform is specified, also automatically determine the side of the controls. (e.g. macOS left, others right)
 
 ## Figma
 
