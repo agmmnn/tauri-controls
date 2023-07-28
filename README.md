@@ -58,7 +58,19 @@ function MyTitlebar() {
 }
 ```
 
-When no platform is specified, the current system will be detected and the matching element will be returned. A good method for cross-platfrom releases.
+When no platform is specified, the current system will be detected and the matching element will be returned. It's a great solution for cross-platform releases.
+
+```tsx
+import { WindowTitlebar } from "tauri-controls"
+
+function MyTitlebar() {
+  return (
+    <WindowTitlebar>{/* Place your titlebar content here */}</WindowTitlebar>
+  )
+}
+```
+
+WindowTitlebar component handles the window controls and dynamically adjusts the control buttons and titlebar content order based on the current operating system.
 
 [![](.github/statics/Frame.png)](https://www.figma.com/file/ms2vbZx5lEGxHqHR8fAfQm/Desktop-Native-Window-Controls?type=design&node-id=4%3A6020&mode=design&t=PIbVTsr8zWmIFsNr-1)
 
@@ -67,8 +79,14 @@ When no platform is specified, the current system will be detected and the match
 ### Options
 
 ```ts
-// specify which platform's window controls to display
+// WindowControls:
 platform?: "windows" | "macos" | "gnome"
+hide?: boolean
+hideMethod?: "display" | "visibility"
+
+// WindowTitlebar:
+controlsOrder?: "right" | "left" | "platform"
+windowControlsProps?: WindowControls
 ```
 
 You can also pass additional `props` to elements like `data-tauri-drag-region` for further enhancements.
