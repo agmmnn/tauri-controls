@@ -29,10 +29,7 @@ export function WindowTitlebar({
 
   return (
     <div
-      className={cn(
-        "flex select-none flex-row items-center overflow-clip",
-        className
-      )}
+      className={cn("flex select-none flex-row overflow-clip", className)}
       data-tauri-drag-region
       {...props}
     >

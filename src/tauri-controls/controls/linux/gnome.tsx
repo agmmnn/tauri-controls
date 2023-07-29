@@ -32,7 +32,7 @@ export function Gnome({ className, ...props }: HTMLProps<HTMLDivElement>) {
 
   return (
     <div
-      className={cn("ml-auto h-full items-center gap-4 px-2", className)}
+      className={cn("ml-auto h-auto items-center gap-4 px-2", className)}
       {...props}
     >
       <Button
