@@ -1,8 +1,8 @@
 import { type } from "@tauri-apps/plugin-os"
 import { useEffect, useState } from "react"
-import { type WindowControls } from "src"
 import { cn } from "src/tauri-controls/libs/utils"
 import { Gnome, MacOS, Windows } from "./controls"
+import { type WindowControlsProps } from "./types"
 
 export function WindowControls({
   platform,
@@ -11,7 +11,7 @@ export function WindowControls({
   // linuxDesktop = "gnome",
   className,
   ...props
-}: WindowControls) {
+}: WindowControlsProps) {
   const [osType, setOsType] = useState("")
 
   useEffect(() => {

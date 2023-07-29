@@ -1,16 +1,16 @@
 import { type } from "@tauri-apps/plugin-os"
 import { useEffect, useState } from "react"
-import { type WindowTitlebar } from "src"
 import { cn } from "src/tauri-controls/libs/utils"
+import { type WindowTitlebarProps } from "./types"
 import { WindowControls } from "./window-controls"
 
 export function WindowTitlebar({
   children,
-  controlsOrder,
+  controlsOrder = "system",
   className,
   windowControlsProps,
   ...props
-}: WindowTitlebar) {
+}: WindowTitlebarProps) {
   const [osType, setOsType] = useState("")
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function WindowTitlebar({
     controlsOrder === "left" ||
     (controlsOrder === "platform" &&
       windowControlsProps?.platform === "macos") ||
-    (controlsOrder === undefined && osType === "Darwin")
+    (controlsOrder === "system" && osType === "Darwin")
 
   return (
     <div

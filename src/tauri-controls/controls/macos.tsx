@@ -1,11 +1,11 @@
 import { appWindow } from "@tauri-apps/plugin-window"
-import { useCallback, useEffect, useState, type HTMLProps } from "react"
+import { useEffect, useState, type HTMLProps } from "react"
 import { Icons } from "src/tauri-controls/components/icons"
 import { cn } from "src/tauri-controls/libs/utils"
 import { Button } from "../components/button"
 
 export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
-  const [isWindowMaximized, setIsWindowMaximized] = useState(false)
+  // const [isWindowMaximized, setIsWindowMaximized] = useState(false)
   const [isAltKeyPressed, setIsAltKeyPressed] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
 
@@ -38,22 +38,22 @@ export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
     window.addEventListener("keyup", handleAltKeyUp)
   }, [])
 
-  const updateIsWindowMaximized = useCallback(async () => {
-    const resolvedPromise = await appWindow.isMaximized()
-    setIsWindowMaximized(resolvedPromise)
-  }, [])
+  // const updateIsWindowMaximized = useCallback(async () => {
+  //   const resolvedPromise = await appWindow.isMaximized()
+  //   setIsWindowMaximized(resolvedPromise)
+  // }, [])
 
-  useEffect(() => {
-    updateIsWindowMaximized()
-    let unlisten: () => void = () => {}
-    const listen = async () => {
-      unlisten = await appWindow.onResized(() => {
-        updateIsWindowMaximized()
-      })
-    }
-    listen()
-    return () => unlisten && unlisten()
-  }, [updateIsWindowMaximized])
+  // useEffect(() => {
+  //   updateIsWindowMaximized()
+  //   let unlisten: () => void = () => {}
+  //   const listen = async () => {
+  //     unlisten = await appWindow.onResized(() => {
+  //       updateIsWindowMaximized()
+  //     })
+  //   }
+  //   listen()
+  //   return () => unlisten && unlisten()
+  // }, [updateIsWindowMaximized])
 
   const minimizeWindow = async () => await appWindow.minimize()
   const maximizeWindow = async () => await appWindow.toggleMaximize()

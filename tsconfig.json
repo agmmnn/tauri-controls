@@ -22,8 +22,8 @@
     "paths": {
       "tauri-controls": ["src/tauri-controls/index.ts"]
     },
-    "typeRoots": ["node_modules/@types", "src/index.d.ts"]
+    "typeRoots": ["node_modules/@types", "src/tauri-controls/types.ts"]
   },
-  "include": ["src"],
+  "include": ["src/tauri-controls"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

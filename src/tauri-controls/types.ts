@@ -5,7 +5,7 @@ import type { HTMLProps } from "react"
  * If the `platform` property is not specified, the library will automatically detect
  * the operating system the app is running on and display the appropriate elements.
  */
-export interface WindowControls extends HTMLProps<HTMLDivElement> {
+export interface WindowControlsProps extends HTMLProps<HTMLDivElement> {
   /**
    * Specifies which platform's window controls to display.
    * It can be one of "windows", "macos", or "gnome".
@@ -48,12 +48,13 @@ export interface WindowControls extends HTMLProps<HTMLDivElement> {
 /**
  * Interface for titlebar
  */
-export interface WindowTitlebar extends HTMLProps<HTMLDivElement> {
+export interface WindowTitlebarProps extends HTMLProps<HTMLDivElement> {
   /**
    * The `controlsOrder` property is an optional property used in the `WindowControls` interface.
    * It allows you to specify the order in which the window controls should be rendered relative to the children.
+   * (default: system)
    *
-   * When `controlsOrder` is not specified or set to `undefined`, the default behavior will be as follows:
+   * When `controlsOrder` is not specified or set to `system`, the default behavior will be as follows:
    * - For platforms other than macOS, the controls will be on the right side of the children.
    * - For macOS, the controls will be on the left side of the children (similar to "left" option).
    *
@@ -62,10 +63,10 @@ export interface WindowTitlebar extends HTMLProps<HTMLDivElement> {
    * - "left": The window controls will be rendered to the left of the children. This order applies only when the platform is macOS (macOS window controls are usually located on the left side of the title bar).
    * - "platform": for OS-based positioning specified in `windowControlsProps`
    */
-  controlsOrder?: "right" | "left" | "platform"
+  controlsOrder?: "right" | "left" | "platform" | "system"
 
   /**
    * `WindowControls` props
    */
-  windowControlsProps?: WindowControls
+  windowControlsProps?: WindowControlsProps
 }
