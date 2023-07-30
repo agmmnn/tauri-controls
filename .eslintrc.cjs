@@ -5,12 +5,17 @@ module.exports = {
     node: true,
   },
   extends: [
+    "eslint:recommended",
     "plugin:react/recommended",
     "prettier",
-    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
   ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   overrides: [],
   parserOptions: {
     ecmaVersion: "latest",

@@ -9,7 +9,6 @@ import * as packageJson from "./package.json"
 
 const { EsLinter, linterPlugin } = EsLint
 
-// https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
   plugins: [
     dts({
@@ -33,12 +32,22 @@ export default defineConfig((configEnv) => ({
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
       plugins: [terser()],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+          "@tauri-apps/plugin-os": "pluginOs",
+          clsx: "clsx",
+          "tailwind-merge": "tailwindMerge",
+          "@tauri-apps/plugin-window": "pluginWindow",
+        },
+      },
     },
   },
 
   clearScreen: false,
   server: {
-    port: 1420,
+    port: 1421,
     strictPort: true,
   },
   envPrefix: ["VITE_", "TAURI_"],
