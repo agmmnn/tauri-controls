@@ -32,18 +32,18 @@ export function Gnome({ className, ...props }: HTMLProps<HTMLDivElement>) {
 
   return (
     <div
-      className={cn("ml-auto h-auto items-center gap-4 px-2", className)}
+      className={cn("ml-auto h-auto items-center px-2", className)}
       {...props}
     >
       <Button
         onClick={minimizeWindow}
-        className="m-0 aspect-square h-[24px] cursor-default rounded-full bg-[#dadada] p-0 text-[#3d3d3d] hover:bg-[#d1d1d1] active:bg-[#bfbfbf] dark:bg-[#373737] dark:text-white dark:hover:bg-[#424242] dark:active:bg-[#565656]"
+        className="m-0 mr-4 aspect-square h-[24px] w-[24px] cursor-default rounded-full bg-[#dadada] p-0 text-[#3d3d3d] hover:bg-[#d1d1d1] active:bg-[#bfbfbf] dark:bg-[#373737] dark:text-white dark:hover:bg-[#424242] dark:active:bg-[#565656]"
       >
         <Icons.minimizeWin className="w-[9px]" />
       </Button>
       <Button
         onClick={maximizeWindow}
-        className="m-0 aspect-square h-[24px] cursor-default rounded-full bg-[#dadada] p-0 text-[#3d3d3d] hover:bg-[#d1d1d1] active:bg-[#bfbfbf] dark:bg-[#373737] dark:text-white dark:hover:bg-[#424242] dark:active:bg-[#565656]"
+        className="m-0 mr-4 aspect-square h-[24px] w-[24px] cursor-default rounded-full bg-[#dadada] p-0 text-[#3d3d3d] hover:bg-[#d1d1d1] active:bg-[#bfbfbf] dark:bg-[#373737] dark:text-white dark:hover:bg-[#424242] dark:active:bg-[#565656]"
       >
         {!isWindowMaximized ? (
           <Icons.maximizeWin className="h-2 w-2" />
@@ -53,7 +53,7 @@ export function Gnome({ className, ...props }: HTMLProps<HTMLDivElement>) {
       </Button>
       <Button
         onClick={closeWindow}
-        className="m-0 aspect-square h-[24px] cursor-default rounded-full bg-[#dadada] p-0 text-[#3d3d3d] hover:bg-[#d1d1d1] active:bg-[#bfbfbf] dark:bg-[#373737] dark:text-white dark:hover:bg-[#424242] dark:active:bg-[#565656]"
+        className="m-0 aspect-square h-[24px] w-[24px] cursor-default rounded-full bg-[#dadada] p-0 text-[#3d3d3d] hover:bg-[#d1d1d1] active:bg-[#bfbfbf] dark:bg-[#373737] dark:text-white dark:hover:bg-[#424242] dark:active:bg-[#565656]"
       >
         <Icons.closeWin className="h-2 w-2" />
       </Button>

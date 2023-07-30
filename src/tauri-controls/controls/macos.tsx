@@ -10,7 +10,7 @@ export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
   const [isHovering, setIsHovering] = useState(false)
 
   const last = isAltKeyPressed ? <Icons.plusMac /> : <Icons.fullMac />
-  const key = "Meta"
+  const key = "Alt"
 
   if (process.env.NODE_ENV === "production")
     document.addEventListener("contextmenu", (event) => event.preventDefault())
@@ -69,20 +69,20 @@ export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
 
   return (
     <div
-      className={cn("gap-2 px-4", className)}
+      className={cn("px-2", className)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       {...props}
     >
       <Button
         onClick={closeWindow}
-        className="m-0 aspect-square h-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#ff544d] p-0 text-center text-[#800d01] hover:bg-[#ff544d] active:bg-[#bf403a] active:text-[#590600] dark:border-none"
+        className="mr-2 aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#ff544d] text-center text-black/50 hover:bg-[#ff544d] active:bg-[#bf403a] active:text-[#590600] dark:border-none"
       >
         {isHovering && <Icons.closeMac />}
       </Button>
       <Button
         onClick={minimizeWindow}
-        className="m-0 aspect-square h-3 cursor-default content-center items-center justify-center self-center rounded-full  border border-black/[.12]  bg-[#ffbd2e] p-0 text-center text-[#995700] hover:bg-[#ffbd2e] active:bg-[#bf9122] active:text-[#592800] dark:border-none"
+        className="mr-2 aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12]  bg-[#ffbd2e] text-center text-black/50 hover:bg-[#ffbd2e] active:bg-[#bf9122] active:text-[#592800] dark:border-none"
       >
         {isHovering && <Icons.minMac />}
       </Button>
@@ -90,7 +90,7 @@ export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
         // onKeyDown={handleAltKeyDown}
         // onKeyUp={handleAltKeyUp}
         onClick={isAltKeyPressed ? maximizeWindow : fullscreenWindow}
-        className="m-0 aspect-square h-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#28c93f] p-0 text-center text-[#006500] hover:bg-[#28c93f] active:bg-[#1e9930] active:text-[#003000] dark:border-none"
+        className="aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#28c93f] text-center text-black/50 hover:bg-[#28c93f] active:bg-[#1e9930] active:text-[#003000] dark:border-none"
       >
         {isHovering && last}
       </Button>

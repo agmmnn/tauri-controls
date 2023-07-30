@@ -69,9 +69,9 @@ export const Icons = {
   ),
   closeMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
-      width="8"
-      height="8"
-      viewBox="0 0 16 18"
+      width="6"
+      height="6"
+      viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -85,6 +85,7 @@ export const Icons = {
   minMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
       width="8"
+      height="8"
       viewBox="0 0 17 6"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -102,8 +103,9 @@ export const Icons = {
   ),
   fullMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
-      width="8"
-      viewBox="0 0 16 16"
+      width="6"
+      height="6"
+      viewBox="0 0 15 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -121,6 +123,7 @@ export const Icons = {
   plusMac: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
       width="8"
+      height="8"
       viewBox="0 0 17 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
