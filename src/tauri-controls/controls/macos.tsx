@@ -5,7 +5,6 @@ import { cn } from "src/tauri-controls/libs/utils"
 import { Button } from "../components/button"
 
 export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
-  // const [isWindowMaximized, setIsWindowMaximized] = useState(false)
   const [isAltKeyPressed, setIsAltKeyPressed] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
 
@@ -38,23 +37,6 @@ export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
     window.addEventListener("keyup", handleAltKeyUp)
   }, [])
 
-  // const updateIsWindowMaximized = useCallback(async () => {
-  //   const resolvedPromise = await appWindow.isMaximized()
-  //   setIsWindowMaximized(resolvedPromise)
-  // }, [])
-
-  // useEffect(() => {
-  //   updateIsWindowMaximized()
-  //   let unlisten: () => void = () => {}
-  //   const listen = async () => {
-  //     unlisten = await appWindow.onResized(() => {
-  //       updateIsWindowMaximized()
-  //     })
-  //   }
-  //   listen()
-  //   return () => unlisten && unlisten()
-  // }, [updateIsWindowMaximized])
-
   const minimizeWindow = async () => await appWindow.minimize()
   const maximizeWindow = async () => await appWindow.toggleMaximize()
   const fullscreenWindow = async () => {
@@ -69,20 +51,23 @@ export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
 
   return (
     <div
-      className={cn("px-2", className)}
+      className={cn(
+        "px-2 text-black active:text-black dark:text-black",
+        className
+      )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       {...props}
     >
       <Button
         onClick={closeWindow}
-        className="mr-2 aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#ff544d] text-center text-black/50 hover:bg-[#ff544d] active:bg-[#bf403a] active:text-[#590600] dark:border-none"
+        className="mr-2 aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#ff544d] text-center text-black/60 hover:bg-[#ff544d] active:bg-[#bf403a] active:text-black/60 dark:border-none"
       >
         {isHovering && <Icons.closeMac />}
       </Button>
       <Button
         onClick={minimizeWindow}
-        className="mr-2 aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12]  bg-[#ffbd2e] text-center text-black/50 hover:bg-[#ffbd2e] active:bg-[#bf9122] active:text-[#592800] dark:border-none"
+        className="mr-2 aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12]  bg-[#ffbd2e] text-center text-black/60 hover:bg-[#ffbd2e] active:bg-[#bf9122] active:text-black/60 dark:border-none"
       >
         {isHovering && <Icons.minMac />}
       </Button>
@@ -90,7 +75,7 @@ export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
         // onKeyDown={handleAltKeyDown}
         // onKeyUp={handleAltKeyUp}
         onClick={isAltKeyPressed ? maximizeWindow : fullscreenWindow}
-        className="aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#28c93f] text-center text-black/50 hover:bg-[#28c93f] active:bg-[#1e9930] active:text-[#003000] dark:border-none"
+        className="aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#28c93f] text-center text-black/60 hover:bg-[#28c93f] active:bg-[#1e9930] active:text-black/60 dark:border-none"
       >
         {isHovering && last}
       </Button>
