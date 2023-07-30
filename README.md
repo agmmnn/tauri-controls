@@ -58,7 +58,11 @@ function MyTitlebar() {
 }
 ```
 
+![](https://github.com/agmmnn/tauri-controls/assets/16024979/7be3dde4-7953-4188-af12-abd4445c0bf9)
+
 When no platform is specified, the current system will be detected and the matching element will be returned. It's a great solution for cross-platform releases.
+
+WindowTitlebar component handles the window controls and dynamically adjusts the control buttons and titlebar content order based on the current operating system.
 
 ```tsx
 import { WindowTitlebar } from "tauri-controls"
@@ -70,23 +74,21 @@ function MyTitlebar() {
 }
 ```
 
-WindowTitlebar component handles the window controls and dynamically adjusts the control buttons and titlebar content order based on the current operating system.
+![](https://github.com/agmmnn/tauri-controls/assets/16024979/214677d4-dd70-4e6b-96c3-b9d1a1356f05)
 
-[![](.github/statics/Frame.png)](https://www.figma.com/file/ms2vbZx5lEGxHqHR8fAfQm/Desktop-Native-Window-Controls?type=design&node-id=4%3A6020&mode=design&t=PIbVTsr8zWmIFsNr-1)
-
-> _If you get the message "Not allowed by scope" in the terminal after a production build (like me), try [this](https://github.com/agmmnn/tauri-controls/issues/1#issuecomment-1653557673)._
+> _If you get the message "Not allowed by scope" in the terminal after a production build, try [this](https://github.com/agmmnn/tauri-controls/issues/1#issuecomment-1653557673)._
 
 ### Options
 
 ```ts
+// WindowTitlebar:
+controlsOrder?: "right" | "left" | "platform" | "system"
+windowControlsProps?: WindowControlsProps
+
 // WindowControls:
 platform?: "windows" | "macos" | "gnome"
 hide?: boolean
 hideMethod?: "display" | "visibility"
-
-// WindowTitlebar:
-controlsOrder?: "right" | "left" | "platform"
-windowControlsProps?: WindowControls
 ```
 
 You can also pass additional `props` to elements like `data-tauri-drag-region` for further enhancements.
@@ -108,6 +110,8 @@ You can also pass additional `props` to elements like `data-tauri-drag-region` f
 ```
 
 ![](https://i.imgur.com/hq389kn.png)
+
+[More examples](https://github.com/agmmnn/tauri-controls/blob/master/src/App.tsx).
 
 # To-Do
 
