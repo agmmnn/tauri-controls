@@ -1,35 +1,97 @@
 import "./style.css"
-import { useState } from "react"
+import React, { useState } from "react"
 import { WindowControls } from "./tauri-controls/window-controls"
 import { WindowTitlebar } from "./tauri-controls/window-titlebar"
 
 function App() {
   return (
-    <div className="flex w-[960px] flex-col gap-3 p-14">
-      <span className="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
-        WindowControls
-      </span>
-      {/* OnlyControls */}
-      <div className="flex w-fit gap-3 rounded-xl border border-dashed border-slate-400 p-3  shadow dark:border-slate-600">
+    <div>
+      <div className="flex w-[960px] flex-col gap-3 p-14">
+        <span className="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
+          WindowControls
+        </span>
+        {/* OnlyControls */}
+        <div className="flex w-fit gap-3 rounded-xl border border-dashed border-slate-400 p-3  shadow dark:border-slate-600">
+          {platforms.map((x) => (
+            <OnlyControls key={x} platform={x} />
+          ))}
+        </div>
+
+        <span className="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
+          WindowTitlebar
+        </span>
+        {/* Icon+Title Controls */}
         {platforms.map((x) => (
-          <OnlyControls key={x} platform={x} />
+          <IMC key={x} platform={x} />
         ))}
+
+        {/* Icon Menu Title Controls */}
+        {platforms.map((x) => (
+          <IMTC key={x} platform={x} />
+        ))}
+        <ThemeSwitcher />
+
+        <WindowTitlebar
+          className="rounded-xl bg-slate-400"
+          controlsOrder="platform"
+          windowControlsProps={{
+            className: "border border-black/80 border-dotted",
+            platform: "windows",
+          }}
+        ></WindowTitlebar>
+        <WindowTitlebar
+          className="rounded-xl bg-slate-400"
+          controlsOrder="platform"
+          windowControlsProps={{
+            className: "border border-black/80 border-dotted",
+            platform: "windows",
+          }}
+        >
+          <Content />
+        </WindowTitlebar>
+        <WindowTitlebar
+          className="h-20 rounded-xl bg-slate-400 "
+          controlsOrder="platform"
+          windowControlsProps={{
+            className: "border border-black/80 border-dotted",
+            platform: "windows",
+          }}
+        >
+          <Content />
+        </WindowTitlebar>
+        <WindowTitlebar
+          className="h-5 rounded-xl bg-white dark:bg-slate-800"
+          controlsOrder="platform"
+          windowControlsProps={{
+            className: "border border-black/80 border-dotted h-auto",
+            platform: "windows",
+          }}
+        >
+          <Content />
+        </WindowTitlebar>
+
+        <WindowTitlebar />
       </div>
-
-      <span className="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
-        WindowTitlebar
-      </span>
-      {/* Icon+Title Controls */}
-      {platforms.map((x) => (
-        <IMC key={x} platform={x} />
-      ))}
-
-      {/* Icon Menu Title Controls */}
-      {platforms.map((x) => (
-        <IMTC key={x} platform={x} />
-      ))}
-      <ThemeSwitcher />
     </div>
+  )
+}
+
+const Content = () => {
+  const Inside = () => (
+    <span className="border border-black/[.07]">Content</span>
+  )
+  return (
+    <>
+      <div className="flex w-full items-center justify-center bg-yellow-300">
+        <Inside />
+      </div>
+      <div className="flex w-full items-center justify-center bg-rose-300">
+        <Inside />
+      </div>
+      <div className="flex w-[1300px] items-center justify-center bg-sky-300">
+        <Inside />
+      </div>
+    </>
   )
 }
 

@@ -1,8 +1,8 @@
-import { type } from "@tauri-apps/plugin-os"
-import { useEffect, useState } from "react"
 import { cn } from "src/tauri-controls/libs/utils"
+import { TauriAppWindowProvider } from "./contexts/plugin-window"
 import { Gnome, MacOS, Windows } from "./controls"
-import { type WindowControlsProps } from "./types"
+import { osType } from "./libs/plugin-os"
+import type { WindowControlsProps } from "./types"
 
 export function WindowControls({
   platform,
@@ -12,43 +12,42 @@ export function WindowControls({
   className,
   ...props
 }: WindowControlsProps) {
-  const [osType, setOsType] = useState("")
-
-  useEffect(() => {
-    async function fetchOsType() {
-      const typeResult = await type()
-      setOsType(typeResult)
-    }
-    fetchOsType()
-  }, [platform])
-
   const customClass = cn(
     "flex",
     className,
     hide && (hideMethod === "display" ? "hidden" : "invisible")
   )
 
-  const windowsControls = <Windows className={customClass} {...props} />
-  const macosControls = <MacOS className={customClass} {...props} />
-  const gnomeControls = <Gnome className={customClass} {...props} />
-
-  // Check the platform and render the appropriate controls
-  switch (platform) {
-    case "windows":
-      return windowsControls
-    case "macos":
-      return macosControls
-    case "gnome":
-      return gnomeControls
-    default:
-      // If platform is not specified or not recognized, use osType to determine the default
-      switch (osType) {
-        case "Windows_NT":
-          return windowsControls
-        case "Darwin":
-          return macosControls
-        default:
-          return windowsControls
-      }
+  // Determine the default platform based on the operating system if not specified
+  if (!platform) {
+    switch (osType) {
+      case "Darwin":
+        platform = "macos"
+        break
+      case "Linux":
+        platform = "gnome"
+        break
+      default:
+        platform = "windows"
+    }
   }
+
+  const ControlsComponent = () => {
+    switch (platform) {
+      case "windows":
+        return <Windows className={customClass} {...props} />
+      case "macos":
+        return <MacOS className={customClass} {...props} />
+      case "gnome":
+        return <Gnome className={customClass} {...props} />
+      default:
+        return <Windows className={customClass} {...props} />
+    }
+  }
+
+  return (
+    <TauriAppWindowProvider>
+      <ControlsComponent />
+    </TauriAppWindowProvider>
+  )
 }

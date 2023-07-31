@@ -1,18 +1,18 @@
-import { appWindow } from "@tauri-apps/plugin-window"
-import { useEffect, useState, type HTMLProps } from "react"
+import { useContext, useEffect, useState, type HTMLProps } from "react"
 import { Icons } from "src/tauri-controls/components/icons"
 import { cn } from "src/tauri-controls/libs/utils"
 import { Button } from "../components/button"
+import TauriAppWindowContext from "../contexts/plugin-window"
 
 export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
+  const { minimizeWindow, maximizeWindow, fullscreenWindow, closeWindow } =
+    useContext(TauriAppWindowContext)
+
   const [isAltKeyPressed, setIsAltKeyPressed] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
 
   const last = isAltKeyPressed ? <Icons.plusMac /> : <Icons.fullMac />
   const key = "Alt"
-
-  if (process.env.NODE_ENV === "production")
-    document.addEventListener("contextmenu", (event) => event.preventDefault())
 
   const handleMouseEnter = () => {
     setIsHovering(true)
@@ -36,18 +36,6 @@ export function MacOS({ className, ...props }: HTMLProps<HTMLDivElement>) {
     window.addEventListener("keydown", handleAltKeyDown)
     window.addEventListener("keyup", handleAltKeyUp)
   }, [])
-
-  const minimizeWindow = async () => await appWindow.minimize()
-  const maximizeWindow = async () => await appWindow.toggleMaximize()
-  const fullscreenWindow = async () => {
-    const fullscreen = await appWindow.isFullscreen()
-    if (fullscreen) {
-      await appWindow.setFullscreen(false)
-    } else {
-      await appWindow.setFullscreen(true)
-    }
-  }
-  const closeWindow = async () => await appWindow.close()
 
   return (
     <div

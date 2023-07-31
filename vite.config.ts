@@ -26,8 +26,8 @@ export default defineConfig((configEnv) => ({
     lib: {
       entry: resolve("src", "tauri-controls/index.ts"),
       name: "TauriControls",
-      formats: ["es", "umd"],
-      fileName: (format) => `tauri-controls.${format}.js`,
+      formats: ["es"], //"umd"
+      fileName: () => `tauri-controls.js`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
@@ -41,6 +41,8 @@ export default defineConfig((configEnv) => ({
           "tailwind-merge": "tailwindMerge",
           "@tauri-apps/plugin-window": "pluginWindow",
         },
+        intro: 'import "./style.css";',
+        plugins: [terser()],
       },
     },
   },
