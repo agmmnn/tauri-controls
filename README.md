@@ -1,11 +1,11 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/statics/TauriCoverDark.png">
-  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src=".github/statics/TauriCoverLight.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/agmmnn/tauri-controls/assets/16024979/8ac8cae0-9cde-4b27-af8b-02d949ede7a2">
+  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://github.com/agmmnn/tauri-controls/assets/16024979/12f46aa7-72de-4c44-aa4a-0580c73fc73a">
 </picture>
 
-<!-- ![](https://img.shields.io/bundlephobia/min/tauri-controls)
+![](https://img.shields.io/bundlephobia/min/tauri-controls)
 ![](https://img.shields.io/bundlephobia/minzip/tauri-controls)
-![](https://img.shields.io/npm/dt/tauri-controls) -->
+[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls)
 
 **Tauri Controls** is a library that provides native-looking **window controls** for [Tauri](https://github.com/tauri-apps/tauri) 2 applications. You can enhance the user experience of your Tauri 2 applications with window controls that mimic the identical native controls on the current system.
 
@@ -117,10 +117,10 @@ You can also pass additional `props` to elements like `data-tauri-drag-region` f
 
 If the library gets some interest, I can gradually add the following features:
 
+- [x] If no platform is specified, the side of the controls will also be determined automatically. (e.g. MacOS left, others right)
+- [x] Next.js/SSR support.
 - [ ] Detect disabled window controls (is_maximizable, ...) and disable the buttons accordingly.
 - [ ] Svelte/SvelteKit implementation.
-- [ ] Next.js support.
-- [x] When no platform is specified, also automatically determine the side of the controls. (e.g. macOS left, others right)
 
 ## Figma
 
