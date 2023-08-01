@@ -24,7 +24,11 @@ export function WindowTitlebar({
     controlsOrder === "left" ||
     (controlsOrder === "platform" &&
       windowControlsProps?.platform === "macos") ||
-    osType === "Darwin"
+    (controlsOrder === "system" && osType === "Darwin")
+
+  /* eslint-disable */
+  const { className: windowControlsClassName, ...restProps } =
+    windowControlsProps || {}
 
   return (
     <div
@@ -37,13 +41,19 @@ export function WindowTitlebar({
     >
       {left ? (
         <>
-          <WindowControls {...windowControlsProps} />
+          <WindowControls
+            className={cn("ml-0", windowControlsProps?.className)}
+            {...restProps}
+          />
           {children}
         </>
       ) : (
         <>
           {children}
-          <WindowControls {...windowControlsProps} />
+          <WindowControls
+            className={cn("ml-auto", windowControlsProps?.className)}
+            {...restProps}
+          />
         </>
       )}
     </div>

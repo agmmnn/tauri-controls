@@ -16,7 +16,6 @@ function App() {
             <OnlyControls key={x} platform={x} />
           ))}
         </div>
-
         <span className="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
           WindowTitlebar
         </span>
@@ -24,13 +23,11 @@ function App() {
         {platforms.map((x) => (
           <IMC key={x} platform={x} />
         ))}
-
         {/* Icon Menu Title Controls */}
         {platforms.map((x) => (
           <IMTC key={x} platform={x} />
         ))}
         <ThemeSwitcher />
-
         <WindowTitlebar
           className="rounded-xl bg-slate-400"
           controlsOrder="platform"
@@ -69,8 +66,52 @@ function App() {
         >
           <Content />
         </WindowTitlebar>
-
-        <WindowTitlebar />
+        before:
+        <WindowTitlebar
+          controlsOrder="right"
+          windowControlsProps={{
+            platform: "macos",
+            className: "bg-rose-700 rounded-full p-2 ml-0",
+          }}
+        >
+          <div className="flex items-center justify-center rounded-full bg-sky-500 px-2">
+            titlebar content without w-full (macos but on the right side)
+          </div>
+        </WindowTitlebar>
+        <WindowTitlebar
+          controlsOrder="left"
+          windowControlsProps={{
+            platform: "windows",
+            className: "bg-rose-700 rounded-full overflow-hidden ml-auto",
+          }}
+        >
+          <div className="flex items-center justify-center rounded-full bg-sky-500 px-2">
+            titlebar content without w-full (windows but on the left side)
+          </div>
+        </WindowTitlebar>
+        after:
+        <WindowTitlebar
+          controlsOrder="right"
+          windowControlsProps={{
+            platform: "macos",
+            className: "bg-rose-700 rounded-full p-2",
+          }}
+        >
+          <div className="flex items-center justify-center rounded-full bg-sky-500 px-2">
+            titlebar content without w-full (macos but on the right side)
+          </div>
+        </WindowTitlebar>
+        <WindowTitlebar
+          controlsOrder="left"
+          windowControlsProps={{
+            platform: "windows",
+            className: "bg-rose-700 rounded-full overflow-hidden",
+          }}
+        >
+          <div className="flex items-center justify-center rounded-full bg-sky-500 px-2">
+            titlebar content without w-full (windows but on the left side)
+          </div>
+        </WindowTitlebar>
       </div>
     </div>
   )

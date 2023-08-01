@@ -9,10 +9,7 @@ export function Gnome({ className, ...props }: HTMLProps<HTMLDivElement>) {
     useContext(TauriAppWindowContext)
 
   return (
-    <div
-      className={cn("ml-auto h-auto items-center px-2", className)}
-      {...props}
-    >
+    <div className={cn("h-auto items-center px-2", className)} {...props}>
       <Button
         onClick={minimizeWindow}
         className="m-0 mr-4 aspect-square h-6 w-6 cursor-default rounded-full bg-[#dadada] p-0 text-[#3d3d3d] hover:bg-[#d1d1d1] active:bg-[#bfbfbf] dark:bg-[#373737] dark:text-white dark:hover:bg-[#424242] dark:active:bg-[#565656]"
