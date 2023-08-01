@@ -1,5 +1,7 @@
+import type { OsType } from "@tauri-apps/plugin-os"
+import { useEffect, useState } from "react"
 import { cn } from "src/tauri-controls/libs/utils"
-import { osType } from "./libs/plugin-os"
+import { getOsType } from "./libs/plugin-os"
 import type { WindowTitlebarProps } from "./types"
 import { WindowControls } from "./window-controls"
 
@@ -10,10 +12,19 @@ export function WindowTitlebar({
   windowControlsProps,
   ...props
 }: WindowTitlebarProps) {
-  const isMacOS =
-    windowControlsProps?.platform === "macos" || osType === "Darwin"
+  const [osType, setOsType] = useState<OsType | undefined>(undefined)
+
+  useEffect(() => {
+    getOsType().then((type) => {
+      setOsType(type)
+    })
+  }, [])
+
   const left =
-    controlsOrder === "left" || (controlsOrder === "platform" && isMacOS)
+    controlsOrder === "left" ||
+    (controlsOrder === "platform" &&
+      windowControlsProps?.platform === "macos") ||
+    osType === "Darwin"
 
   return (
     <div

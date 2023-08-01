@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react"
 import { cn } from "src/tauri-controls/libs/utils"
 import { TauriAppWindowProvider } from "./contexts/plugin-window"
 import { Gnome, MacOS, Windows } from "./controls"
-import { osType } from "./libs/plugin-os"
+import { getOsType } from "./libs/plugin-os"
 import type { WindowControlsProps } from "./types"
 
 export function WindowControls({
@@ -12,6 +13,14 @@ export function WindowControls({
   className,
   ...props
 }: WindowControlsProps) {
+  const [osType, setOsType] = useState<string | undefined>(undefined)
+
+  useEffect(() => {
+    getOsType().then((type) => {
+      setOsType(type)
+    })
+  }, [])
+
   const customClass = cn(
     "flex",
     className,
