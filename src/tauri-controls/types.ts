@@ -16,21 +16,21 @@ export interface WindowControlsProps extends HTMLProps<HTMLDivElement> {
 
   /**
    * Indicates whether the window controls should be shown or hidden.
-   * (default: false)
+   * @default false
    */
   hide?: boolean
 
   /**
    * - "display": "display: none;" making them completely invisible and not taking up any space.
    * - "visibility": "visibility: hidden;" making them invisible but still occupying the same space.
-   * (default: "display")
+   * @default "display"
    */
   hideMethod?: "display" | "visibility"
 
   /**
    * Specifies the Linux desktop environment for which the window controls are intended.
    * This property is applicable only when the platform is set to "linux".
-   * (default: "gnome")
+   * @default "gnome"
    */
   // linuxDesktop?: "gnome" | "kde" | "budgie"
 
@@ -62,6 +62,7 @@ export interface WindowTitlebarProps extends HTMLProps<HTMLDivElement> {
    * - "right": The window controls will be rendered to the right of the children.
    * - "left": The window controls will be rendered to the left of the children. This order applies only when the platform is macOS (macOS window controls are usually located on the left side of the title bar).
    * - "platform": for OS-based positioning specified in `windowControlsProps`
+   * @default "system"
    */
   controlsOrder?: "right" | "left" | "platform" | "system"
 
