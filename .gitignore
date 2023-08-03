@@ -17,6 +17,7 @@ dist
 # misc
 .DS_Store
 *.pem
+*.tgz
 
 # debug
 npm-debug.log*

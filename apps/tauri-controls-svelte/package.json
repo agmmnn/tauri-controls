@@ -20,6 +20,9 @@
     "tauri": "tauri",
     "tauri:dev": "tauri dev"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",

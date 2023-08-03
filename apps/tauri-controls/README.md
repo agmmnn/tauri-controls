@@ -5,11 +5,11 @@
 
 ![](https://img.shields.io/bundlephobia/min/tauri-controls)
 ![](https://img.shields.io/bundlephobia/minzip/tauri-controls)
-[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls)
+[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls) ![](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB) ![](https://img.shields.io/badge/Svelte-4A4A55?logo=svelte&logoColor=FF3E00)
 
 **Tauri Controls** is a library that provides native-looking **window controls** for [Tauri](https://github.com/tauri-apps/tauri) 2 applications. You can enhance the user experience of your Tauri 2 applications with window controls that mimic the identical native controls on the current system.
 
-`tauri-controls` uses Tauri's [js/ts APIs](https://next--tauri.netlify.app/next/api/js) to handle window events and just provides native-looking (designed according to official system design prototypes) html/react elements, not native, _it does not rely on the system's native APIs_.
+`tauri-controls` uses Tauri's [js/ts APIs](https://next--tauri.netlify.app/next/api/js) to handle window events and just provides native-looking (designed according to official system design prototypes) html elements, not native, _it does not rely on the system's native APIs_.
 
 The following designs are taken as reference:
 
@@ -21,11 +21,23 @@ The following designs are taken as reference:
 ### Install Dependencies
 
 ```bash
+# for react
 pnpm add tauri-controls
 
-#install peer dependencies
+# for svelte
+pnpm add @tauri-controls/svelte
+```
+
+```bash
+# install peer dependencies
 pnpm add @tauri-apps/plugin-os @tauri-apps/plugin-window
 pnpm add -D clsx tailwind-merge
+```
+
+If you are using **Svelte**, add the following line to the `content` section of `tailwind.config.js` _(no need for React)_:
+
+```js
+"./node_modules/@tauri-controls/svelte/**/*.{js,svelte,ts}"
 ```
 
 Then, make sure to include the following tauri plugins in your `src-tauri` directory:
@@ -50,33 +62,68 @@ fn main() {
 
 ### Add to Your Code
 
-And simply add the `WindowControls` component to your code:
+And simply add the `WindowTitlebar` or `WindowControls` component to your code:
+
+#### WindowTitlebar
+
+`WindowTitlebar` component handles the window controls and dynamically adjusts the control buttons and titlebar content order based on the current operating system.
+
+For React:
 
 ```tsx
-import { WindowControls } from "tauri-controls";
-
-function MyTitlebar() {
-  return <WindowControls />;
-}
-```
-
-![](https://github.com/agmmnn/tauri-controls/assets/16024979/7be3dde4-7953-4188-af12-abd4445c0bf9)
-
-When no platform is specified, the current system will be detected and the matching element will be returned. It's a great solution for cross-platform releases.
-
-WindowTitlebar component handles the window controls and dynamically adjusts the control buttons and titlebar content order based on the current operating system.
-
-```tsx
-import { WindowTitlebar } from "tauri-controls";
+import { WindowTitlebar } from "tauri-controls"
 
 function MyTitlebar() {
   return (
     <WindowTitlebar>{/* Place your titlebar content here */}</WindowTitlebar>
-  );
+  )
 }
 ```
 
+For Svelte:
+
+```svelte
+<script lang="ts">
+  import { WindowTitlebar } from "@tauri-controls/svelte"
+</script>
+
+<WindowTitlebar>{/* Place your titlebar content here */}</WindowTitlebar>
+```
+
 ![](https://github.com/agmmnn/tauri-controls/assets/16024979/214677d4-dd70-4e6b-96c3-b9d1a1356f05)
+
+When no platform is specified, the current system will be detected and the matching element will be returned. This feature is a great solution for cross-platform releases.
+
+#### WindowControls
+
+Use the `WindowControls` component only for window controls.
+
+For React:
+
+```tsx
+import { WindowControls } from "tauri-controls"
+
+function MyTitlebar() {
+  return <WindowControls />
+}
+```
+
+For Svelte:
+
+```svelte
+<script lang="ts">
+  import { WindowTitlebar } from "@tauri-controls/svelte"
+</script>
+
+<WindowControls />
+```
+
+![](https://github.com/agmmnn/tauri-controls/assets/16024979/7be3dde4-7953-4188-af12-abd4445c0bf9)
+
+#### More examples:
+
+- [in React](https://github.com/agmmnn/tauri-controls/blob/master/apps/tauri-controls/src/App.tsx)
+- [in Svelte](https://github.com/agmmnn/tauri-controls/blob/master/apps/tauri-controls-svelte/src/routes/%2Bpage.svelte)
 
 ### Options
 
@@ -87,31 +134,16 @@ windowControlsProps?: WindowControlsProps
 
 // WindowControls:
 platform?: "windows" | "macos" | "gnome"
+justify?: boolean
 hide?: boolean
 hideMethod?: "display" | "visibility"
 ```
 
 You can also pass additional `props` to elements like `data-tauri-drag-region` for further enhancements.
 
-### Examples:
-
-```tsx
-<WindowControls platform="macos" className="my-4" />
-```
-
 ![](https://i.imgur.com/OAO22HC.png)
 
-```tsx
-<WindowControls
-  platform="windows"
-  className="w-full justify-end"
-  data-tauri-drag-region
-/>
-```
-
 ![](https://i.imgur.com/hq389kn.png)
-
-[More examples](https://github.com/agmmnn/tauri-controls/blob/master/src/App.tsx).
 
 # To-Do
 
@@ -119,8 +151,8 @@ If the library gets some interest, I can gradually add the following features:
 
 - [x] If no platform is specified, the side of the controls will also be determined automatically. (e.g. MacOS left, others right)
 - [x] Next.js/SSR support.
+- [x] Svelte/SvelteKit implementation.
 - [ ] Detect disabled window controls (is_maximizable, ...) and disable the buttons accordingly.
-- [ ] Svelte/SvelteKit implementation.
 
 ## Figma
 
