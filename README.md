@@ -46,15 +46,17 @@ fn main() {
 }
 ```
 
+> _If you get the message "Not allowed by scope" in the terminal after a production build, try [this](https://github.com/agmmnn/tauri-controls/issues/1#issuecomment-1653557673)._
+
 ### Add to Your Code
 
 And simply add the `WindowControls` component to your code:
 
 ```tsx
-import { WindowControls } from "tauri-controls"
+import { WindowControls } from "tauri-controls";
 
 function MyTitlebar() {
-  return <WindowControls />
+  return <WindowControls />;
 }
 ```
 
@@ -65,18 +67,16 @@ When no platform is specified, the current system will be detected and the match
 WindowTitlebar component handles the window controls and dynamically adjusts the control buttons and titlebar content order based on the current operating system.
 
 ```tsx
-import { WindowTitlebar } from "tauri-controls"
+import { WindowTitlebar } from "tauri-controls";
 
 function MyTitlebar() {
   return (
     <WindowTitlebar>{/* Place your titlebar content here */}</WindowTitlebar>
-  )
+  );
 }
 ```
 
 ![](https://github.com/agmmnn/tauri-controls/assets/16024979/214677d4-dd70-4e6b-96c3-b9d1a1356f05)
-
-> _If you get the message "Not allowed by scope" in the terminal after a production build, try [this](https://github.com/agmmnn/tauri-controls/issues/1#issuecomment-1653557673)._
 
 ### Options
 
@@ -132,6 +132,25 @@ These sources were utilized:
 - [Apple Design Resources - macOS](https://www.figma.com/community/file/1251588934545918753) @apple
 - [macOS Monterey UI Kit for Figma](https://www.figma.com/community/file/1034539431656086181/macOS-Monterey-UI-Kit-for-Figma) @joey
 - [Spotify Desktop App Clone](https://www.figma.com/community/file/1028665514709480268/Spotify-Desktop-App-Clone) @uidesignguide
+
+## Dev
+
+```bash
+pnpm dev
+
+pnpm tauri:dev
+```
+
+```
+.
+├── /apps
+│   ├── /tauri-controls
+│   └── /auri-controls-svelte
+├── /packages
+├── package.json
+├── pnpm-workspace.yaml
+└── turbo.json
+```
 
 ## Further Reading
 

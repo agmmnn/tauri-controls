@@ -1,75 +1,25 @@
 {
-  "name": "tauri-controls",
-  "description": "🚥 Native-looking window controls for Tauri 2.",
-  "private": false,
-  "version": "0.0.8",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agmmnn/tauri-controls"
-  },
-  "keywords": [],
-  "author": "agmmnn",
-  "bugs": {
-    "url": "https://github.com/agmmnn/tauri-controls/issues"
-  },
-  "homepage": "https://github.com/agmmnn/tauri-controls#readme",
-  "license": "MIT",
+  "name": "tauri-controls-root",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "format": "prettier --write . --ignore-path .gitignore --config ./prettier.config.cjs",
-    "tauri": "tauri"
-  },
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/tauri-controls.js"
-    }
-  },
-  "module": "./dist/tauri-controls.js",
-  "types": "./dist/index.d.ts",
-  "dependencies": {
-    "@tauri-apps/api": "2.0.0-alpha.5"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "preview": "turbo run preview",
+    "build:watch": "turbo run build:watch",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\" && turbo run format",
+    "taze": "taze minor -r -w -i false -I",
+    "taze:major": "taze major -r -w -i false -I",
+    "tauri:dev": "turbo run tauri:dev"
   },
   "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
-    "@rollup/plugin-terser": "^0.4.3",
-    "@tauri-apps/cli": "^2.0.0-alpha.10",
-    "@types/node": "^20.4.5",
-    "@types/react": "^18.2.17",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.2.1",
-    "@typescript-eslint/parser": "^6.2.1",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "autoprefixer": "^10.4.14",
+    "@tauri-apps/api": "2.0.0-alpha.5",
+    "@tauri-apps/cli": "^1.4.0",
+    "@turbo/gen": "^1.10.12",
     "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.9.0",
-    "eslint-plugin-import": "^2.28.0",
-    "eslint-plugin-react": "^7.33.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "postcss": "^8.4.27",
-    "prettier": "^3.0.0",
-    "prettier-plugin-tailwindcss": "^0.4.1",
-    "rollup": "^3.27.0",
-    "rollup-plugin-postcss": "^4.0.2",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.7",
-    "vite-plugin-dts": "^3.4.0",
-    "vite-plugin-linter": "^2.0.2",
-    "vite-tsconfig-paths": "^4.2.0"
+    "eslint-config-custom": "workspace:*",
+    "prettier": "^3.0.1",
+    "turbo": "1.10.12"
   },
-  "peerDependencies": {
-    "@tauri-apps/plugin-os": "2.0.0-alpha.0",
-    "@tauri-apps/plugin-window": "2.0.0-alpha.0",
-    "clsx": "^2.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwind-merge": "^1.14.0"
-  }
+  "packageManager": "pnpm@8.6.10"
 }

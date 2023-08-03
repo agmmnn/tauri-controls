@@ -1,0 +1,30 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "preview": {
+      "dependsOn": ["^preview"],
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "build:watch": {
+      "dependsOn": ["^build:watch"]
+    },
+    "format": {},
+    "lint": {},
+    "tauri": {
+      "dependsOn": ["^tauri"],
+      "cache": false
+    },
+    "tauri:dev": {
+      "dependsOn": ["^tauri"],
+      "cache": false
+    }
+  }
+}
