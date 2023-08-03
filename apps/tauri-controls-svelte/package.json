@@ -1,0 +1,81 @@
+{
+  "name": "@tauri-controls/svelte",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && npm run package",
+    "build:tailwind": "tailwind -c ./tailwind-build.config.js -i ./src/lib/index.css -o ./dist/index.css",
+    "build:watch": "vite build --watch",
+    "preview": "vite preview",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "prepublishOnly": "npm run package",
+    "test": "npm run test:integration && npm run test:unit",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "format": "prettier --plugin-search-dir . --write .",
+    "test:integration": "playwright test",
+    "test:unit": "vitest",
+    "sw": "svelte-package -w",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev"
+  },
+  "type": "module",
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "WindowControls.svelte": "./dist/WindowControls.svelte",
+      "WindowTitlebar.svelte": "./dist/WindowTitlebar.svelte"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "peerDependencies": {
+    "@tauri-apps/plugin-os": "2.0.0-alpha.0",
+    "@tauri-apps/plugin-window": "2.0.0-alpha.0",
+    "clsx": "^2.0.0",
+    "svelte": "^4.1.2",
+    "tailwind-merge": "^1.14.0"
+  },
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@playwright/test": "^1.36.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@sveltejs/adapter-auto": "^2.1.0",
+    "@sveltejs/kit": "^1.22.4",
+    "@sveltejs/package": "^2.2.0",
+    "@tauri-apps/api": "2.0.0-alpha.5",
+    "@tauri-apps/cli": "2.0.0-alpha.10",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-svelte": "^2.32.4",
+    "postcss": "^8.4.27",
+    "prettier": "^3.0.1",
+    "prettier-plugin-svelte": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "publint": "^0.2.0",
+    "rollup-plugin-svelte": "^7.1.6",
+    "svelte": "^4.1.2",
+    "svelte-check": "^3.4.6",
+    "tailwindcss": "^3.3.3",
+    "taze": "^0.11.2",
+    "tslib": "^2.6.1",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.8",
+    "vite-plugin-dts": "^3.4.0",
+    "vitest": "^0.34.1"
+  },
+  "dependencies": {
+    "esm-env": "^1.0.0"
+  }
+}
