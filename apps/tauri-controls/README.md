@@ -5,9 +5,9 @@
 
 ![](https://img.shields.io/bundlephobia/min/tauri-controls)
 ![](https://img.shields.io/bundlephobia/minzip/tauri-controls)
-[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls) ![](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB) ![](https://img.shields.io/badge/Svelte-4A4A55?logo=svelte&logoColor=FF3E00)
+[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://www.npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/Svelte-4A4A55?logo=svelte&logoColor=FF3E00)](https://www.npmjs.com/package/@tauri-controls/svelte)
 
-**Tauri Controls** is a library that provides native-looking **window controls** for [Tauri](https://github.com/tauri-apps/tauri) 2 applications. You can enhance the user experience of your Tauri 2 applications with window controls that mimic the identical native controls on the current system.
+**Tauri Controls** is a library that provides native-looking **window controls** for [Tauri 2](https://beta.tauri.app) applications. You can enhance the user experience of your Tauri 2 applications with window controls that mimic the identical native controls on the current system.
 
 `tauri-controls` uses Tauri's [js/ts APIs](https://next--tauri.netlify.app/next/api/js) to handle window events and just provides native-looking (designed according to official system design prototypes) html elements, not native, _it does not rely on the system's native APIs_.
 
@@ -21,24 +21,24 @@ The following designs are taken as reference:
 ### Install Dependencies
 
 ```bash
-# for react
+# React:
 pnpm add tauri-controls
 
-# for svelte
+# Svelte:
 pnpm add @tauri-controls/svelte
 ```
 
 ```bash
-# install peer dependencies
+# Install peer dependencies:
 pnpm add @tauri-apps/plugin-os @tauri-apps/plugin-window
 pnpm add -D clsx tailwind-merge
 ```
 
-If you are using **Svelte**, add the following line to the `content` section of `tailwind.config.js` _(no need for React)_:
-
-```js
-"./node_modules/@tauri-controls/svelte/**/*.{js,svelte,ts}"
-```
+> For **Svelte** projects, include the following line in the `content` section of your `tailwind.config.js` _(no need for React)_:
+>
+> ```js
+> "./node_modules/@tauri-controls/svelte/**/*.{js,svelte,ts}"
+> ```
 
 Then, make sure to include the following tauri plugins in your `src-tauri` directory:
 
@@ -62,11 +62,11 @@ fn main() {
 
 ### Add to Your Code
 
-And simply add the `WindowTitlebar` or `WindowControls` component to your code:
+And simply add the `WindowTitlebar` or `WindowControls` component to your code, depending on your needs:
 
-#### WindowTitlebar
+### WindowTitlebar
 
-`WindowTitlebar` component handles the window controls and dynamically adjusts the control buttons and titlebar content order based on the current operating system.
+The `WindowTitlebar` component handles the window titlebar and dynamically adjusts the **window control buttons** and **titlebar content** order based on the current operating system.
 
 For React:
 
@@ -90,11 +90,11 @@ For Svelte:
 <WindowTitlebar>{/* Place your titlebar content here */}</WindowTitlebar>
 ```
 
-![](https://github.com/agmmnn/tauri-controls/assets/16024979/214677d4-dd70-4e6b-96c3-b9d1a1356f05)
-
 When no platform is specified, the current system will be detected and the matching element will be returned. This feature is a great solution for cross-platform releases.
 
-#### WindowControls
+![](https://github.com/agmmnn/tauri-controls/assets/16024979/214677d4-dd70-4e6b-96c3-b9d1a1356f05)
+
+### WindowControls
 
 Use the `WindowControls` component only for window controls.
 
@@ -120,34 +120,32 @@ For Svelte:
 
 ![](https://github.com/agmmnn/tauri-controls/assets/16024979/7be3dde4-7953-4188-af12-abd4445c0bf9)
 
-#### More examples:
+### More examples:
 
 - [in React](https://github.com/agmmnn/tauri-controls/blob/master/apps/tauri-controls/src/App.tsx)
 - [in Svelte](https://github.com/agmmnn/tauri-controls/blob/master/apps/tauri-controls-svelte/src/routes/%2Bpage.svelte)
 
-### Options
+## Options
 
-```ts
-// WindowTitlebar:
-controlsOrder?: "right" | "left" | "platform" | "system"
-windowControlsProps?: WindowControlsProps
+### `WindowTitlebar`:
 
-// WindowControls:
-platform?: "windows" | "macos" | "gnome"
-justify?: boolean
-hide?: boolean
-hideMethod?: "display" | "visibility"
-```
+- `controlsOrder?: "right" | "left" | "platform" | "system"`: Specifies the order of window controls. **platform**: Gets OS-based positioning specified in windowControlsProps.
+  **system**: Automatically detects the platform and positions the controls accordingly, this is the default behavior.
+- `windowControlsProps?: WindowControlsProps`: Additional props to pass to the `WindowControls` component.
 
-You can also pass additional `props` to elements like `data-tauri-drag-region` for further enhancements.
+### `WindowControls`:
 
-![](https://i.imgur.com/OAO22HC.png)
+- `platform?: "windows" | "macos" | "gnome"`: Specifies which platform's window controls to display. If the platform property is not specified, the library will automatically detect the operating system the app is running on and display the appropriate element.
+- `justify?: boolean`: If set to `true`, `WindowControls` will justify/snap in the flexbox where it is located.
+- `hide?: boolean`: If set to `true`, the window controls will be hidden.
+- `hideMethod?: "display" | "visibility"`: Determines how the window controls will be hidden. Options are "display" (default) and "visibility".
 
-![](https://i.imgur.com/hq389kn.png)
+Additionally, you can pass additional props to elements for further enhancements, like `data-tauri-drag-region`.
+
+![Example](https://i.imgur.com/OAO22HC.png)
+![Example](https://i.imgur.com/hq389kn.png)
 
 # To-Do
-
-If the library gets some interest, I can gradually add the following features:
 
 - [x] If no platform is specified, the side of the controls will also be determined automatically. (e.g. MacOS left, others right)
 - [x] Next.js/SSR support.
