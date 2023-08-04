@@ -1,7 +1,12 @@
-# Tauri + Solid + Typescript
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/agmmnn/tauri-controls/assets/16024979/8ac8cae0-9cde-4b27-af8b-02d949ede7a2">
+  <img alt="Tauri Controls" src="https://github.com/agmmnn/tauri-controls/assets/16024979/12f46aa7-72de-4c44-aa4a-0580c73fc73a">
+</picture>
 
-This template should help get you started developing with Tauri, Solid and Typescript in Vite.
+## @tauri-controls/solid
 
-## Recommended IDE Setup
+```bash
+pnpm add @tauri-controls/solid
+```
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+https://github.com/agmmnn/tauri-controls
