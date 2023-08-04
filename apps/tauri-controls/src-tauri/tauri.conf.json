@@ -66,9 +66,8 @@
         "transparent": true,
         "decorations": false,
         "resizable": true,
-        "closable": false,
         "width": 1000,
-        "height": 730
+        "height": 800
       }
     ]
   }

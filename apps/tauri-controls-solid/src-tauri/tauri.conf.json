@@ -1,13 +1,14 @@
 {
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
     "beforeDevCommand": "pnpm dev",
     "beforeBuildCommand": "pnpm build",
-    "devPath": "http://localhost:1422",
+    "devPath": "http://localhost:1423",
     "distDir": "../dist",
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "tauri-ui"
+    "productName": "tauri-demos"
   },
   "tauri": {
     "bundle": {
@@ -41,7 +42,9 @@
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
-        "nsis": { "installerIcon": "./icons/icon.ico" }
+        "nsis": {
+          "installerIcon": "./icons/icon.ico"
+        }
       }
     },
     "security": {
@@ -51,18 +54,18 @@
           "scheme": "https",
           "domain": "tauri.localhost",
           "windows": ["main"],
-          "plugins": ["app", "shell", "os", "event", "window"]
+          "plugins": ["event", "shell", "os", "window"]
         }
       ]
     },
     "windows": [
       {
         "fullscreen": false,
-        "title": "Tauri Demo",
+        "title": "tauri-demo",
         "center": true,
-        "resizable": true,
-        "decorations": false,
         "transparent": true,
+        "decorations": false,
+        "resizable": true,
         "width": 1000,
         "height": 800
       }

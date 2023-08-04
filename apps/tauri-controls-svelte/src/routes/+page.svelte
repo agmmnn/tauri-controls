@@ -20,7 +20,7 @@
       >@tauri-controls/svelte</span
     >
     <span
-      class="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600"
+      class="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600 text-lg font-semibold"
     >
       WindowControls
     </span>
@@ -33,10 +33,8 @@
       {/each}
     </div>
 
-    <WindowTitlebar>content</WindowTitlebar>
-
     <!-- OnlyControls Snap  -->
-    OnlyControls (Justify/Snap):
+    justify=true:
     <div class="flex border" data-tauri-drag-region>
       <WindowControls platform="windows" justify={true} />
     </div>
@@ -45,10 +43,12 @@
     </div>
 
     <span
-      class="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600"
+      class="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600 text-lg font-semibold"
     >
       WindowTitlebar
     </span>
+
+    <WindowTitlebar>content</WindowTitlebar>
 
     <!-- Icon+Title+Controls  -->
     {#each platforms as platform}

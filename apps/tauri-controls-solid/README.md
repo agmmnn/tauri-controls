@@ -3,10 +3,10 @@
   <img alt="Tauri Controls" src="https://github.com/agmmnn/tauri-controls/assets/16024979/12f46aa7-72de-4c44-aa4a-0580c73fc73a">
 </picture>
 
-## @tauri-controls/svelte
+## @tauri-controls/solid
 
 ```bash
-pnpm add @tauri-controls/svelte
+pnpm add @tauri-controls/solid
 ```
 
 https://github.com/agmmnn/tauri-controls
