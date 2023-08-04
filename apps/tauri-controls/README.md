@@ -175,7 +175,8 @@ pnpm tauri:dev
 .
 ├── /apps
 │   ├── /tauri-controls
-│   └── /auri-controls-svelte
+│   ├── /tauri-controls-solid
+│   └── /tauri-controls-svelte
 ├── /packages
 ├── package.json
 ├── pnpm-workspace.yaml
