@@ -25,6 +25,9 @@
     "tauri": "tauri",
     "tauri:dev": "tauri dev"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],

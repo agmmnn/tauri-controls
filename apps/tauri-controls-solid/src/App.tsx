@@ -11,24 +11,24 @@ function App() {
         <span class="w-fit rounded bg-violet-200/20 px-2 font-mono">
           @tauri-controls/solid
         </span>
-        <span class="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
+        <span class="w-fit border-b border-slate-400 pb-1 pr-10 text-lg font-semibold dark:border-slate-600">
           WindowControls
         </span>
         {/* OnlyControls */}
         <div class="flex w-fit gap-3 rounded-xl border border-dashed border-slate-400 p-3  shadow dark:border-slate-600">
           <For each={platforms}>{(x) => <OnlyControls platform={x} />}</For>
         </div>
-        <WindowTitlebar>content</WindowTitlebar>
-        OnlyControls (Justify/Snap):
+        justify=true:
         <div class="flex border" data-tauri-drag-region>
           <WindowControls platform="windows" justify={true} />
         </div>
         <div class="flex border" data-tauri-drag-region>
           <WindowControls platform="macos" justify={true} />
         </div>
-        <span class="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
+        <span class="w-fit border-b border-slate-400 pb-1 pr-10 text-lg font-semibold dark:border-slate-600">
           WindowTitlebar
         </span>
+        <WindowTitlebar class="border">content</WindowTitlebar>
         {/* Icon+Title Controls */}
         <For each={platforms}>{(x) => <IMC platform={x} />}</For>
         {/* Icon Menu Title Controls */}
@@ -60,24 +60,7 @@ function App() {
   )
 }
 
-// const Content = () => {
-//   const Inside = () => <span class="border border-black/[.07]">Content</span>
-//   return (
-//     <>
-//       <div class="flex w-full items-center justify-center bg-yellow-300">
-//         <Inside />
-//       </div>
-//       <div class="flex w-full items-center justify-center bg-rose-300">
-//         <Inside />
-//       </div>
-//       <div class="flex w-[1300px] items-center justify-center bg-sky-300">
-//         <Inside />
-//       </div>
-//     </>
-//   )
-// }
-
-const platforms = ["gnome"] //["windows", "macos", "gnome"]
+const platforms = ["windows", "macos", "gnome"]
 
 const OnlyControls = ({ platform }: any) => {
   return <WindowControls platform={platform} />
@@ -137,34 +120,6 @@ const Menu = () => {
     </div>
   )
 }
-
-// const ThemeSwitcher = () => {
-//   const [isDarkTheme, setIsDarkTheme] = createSignal(true)
-
-//   const handleToggleTheme = () => {
-//     setIsDarkTheme((prevState) => !prevState)
-//   }
-
-//   // Add the "dark" class to the <html> element based on the theme selection
-//   if (isDarkTheme()) {
-//     document.documentElement.classList.add("dark")
-//   } else {
-//     document.documentElement.classList.remove("dark")
-//   }
-
-//   return (
-//     <div class="flex items-center gap-1 pt-6">
-//       <label for="theme-toggle">Dark Theme:</label>
-//       <input
-//         type="checkbox"
-//         id="theme-toggle"
-//         checked={isDarkTheme()}
-//         onChange={handleToggleTheme}
-//         class="h-4 w-4"
-//       />
-//     </div>
-//   )
-// }
 
 const ThemeSwitch = () => {
   function toggle() {

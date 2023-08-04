@@ -11,7 +11,7 @@ function App() {
         <span className="w-fit rounded bg-violet-200/20 px-2 font-mono">
           tauri-controls
         </span>
-        <span className="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
+        <span className="w-fit border-b border-slate-400 pb-1 pr-10 text-lg font-semibold dark:border-slate-600">
           WindowControls
         </span>
         {/* OnlyControls */}
@@ -20,17 +20,17 @@ function App() {
             <OnlyControls key={x} platform={x} />
           ))}
         </div>
-        <WindowTitlebar>content</WindowTitlebar>
-        OnlyControls (Justify/Snap):
+        justify=true:
         <div className="flex border" data-tauri-drag-region>
           <WindowControls platform="windows" justify={true} />
         </div>
         <div className="flex border" data-tauri-drag-region>
           <WindowControls platform="macos" justify={true} />
         </div>
-        <span className="w-fit border-b border-slate-400 pb-1 pr-10 dark:border-slate-600">
+        <span className="w-fit border-b border-slate-400 pb-1 pr-10 text-lg font-semibold dark:border-slate-600">
           WindowTitlebar
         </span>
+        <WindowTitlebar className="border">content</WindowTitlebar>
         {/* Icon+Title Controls */}
         {platforms.map((x) => (
           <IMC key={x} platform={x} />
@@ -144,34 +144,6 @@ const Menu = () => {
       {items.map((x) => (
         <span key={x}>{x}</span>
       ))}
-    </div>
-  )
-}
-
-const ThemeSwitcher = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(true)
-
-  const handleToggleTheme = () => {
-    setIsDarkTheme((prevState) => !prevState)
-  }
-
-  // Add the "dark" class to the <html> element based on the theme selection
-  if (isDarkTheme) {
-    document.documentElement.classList.add("dark")
-  } else {
-    document.documentElement.classList.remove("dark")
-  }
-
-  return (
-    <div className="flex items-center gap-1 pt-6">
-      <label htmlFor="theme-toggle">Dark Theme:</label>
-      <input
-        type="checkbox"
-        id="theme-toggle"
-        checked={isDarkTheme}
-        onChange={handleToggleTheme}
-        className="h-4 w-4"
-      />
     </div>
   )
 }

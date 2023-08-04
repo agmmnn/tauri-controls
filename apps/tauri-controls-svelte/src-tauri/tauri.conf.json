@@ -2,7 +2,7 @@
   "build": {
     "beforeDevCommand": "pnpm dev",
     "beforeBuildCommand": "pnpm build",
-    "devPath": "http://localhost:1429",
+    "devPath": "http://localhost:1422",
     "distDir": "../dist",
     "withGlobalTauri": false
   },
@@ -64,7 +64,7 @@
         "decorations": false,
         "transparent": true,
         "width": 1000,
-        "height": 730
+        "height": 800
       }
     ]
   }

@@ -1,11 +1,11 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/agmmnn/tauri-controls/assets/16024979/8ac8cae0-9cde-4b27-af8b-02d949ede7a2">
-  <img alt="Shows an illustrated sun in light color mode and a moon with stars in dark color mode." src="https://github.com/agmmnn/tauri-controls/assets/16024979/12f46aa7-72de-4c44-aa4a-0580c73fc73a">
+  <img alt="Tauri Controls" src="https://github.com/agmmnn/tauri-controls/assets/16024979/12f46aa7-72de-4c44-aa4a-0580c73fc73a">
 </picture>
 
 ![](https://img.shields.io/bundlephobia/min/tauri-controls)
 ![](https://img.shields.io/bundlephobia/minzip/tauri-controls)
-[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://www.npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/Svelte-4A4A55?logo=svelte&logoColor=FF3E00)](https://www.npmjs.com/package/@tauri-controls/svelte)
+[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://www.npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/Svelte-4A4A55?logo=svelte&logoColor=FF3E00)](https://www.npmjs.com/package/@tauri-controls/svelte) [![SolidJS](https://img.shields.io/badge/SolidJS-2c4f7c?logo=solid&logoColor=c8c9cb)](https://www.npmjs.com/package/@tauri-controls/solid)
 
 **Tauri Controls** is a library that provides native-looking **window controls** for [Tauri 2](https://beta.tauri.app) applications. You can enhance the user experience of your Tauri 2 applications with window controls that mimic the identical native controls on the current system.
 
@@ -26,6 +26,9 @@ pnpm add tauri-controls
 
 # Svelte:
 pnpm add @tauri-controls/svelte
+
+# Solid.js:
+pnpm add @tauri-controls/solid
 ```
 
 ```bash
