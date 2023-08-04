@@ -21,7 +21,6 @@ export function MacOS(props: ComponentProps<"div">) {
   const [isAltKeyPressed, setIsAltKeyPressed] = createSignal(false)
   const [isHovering, setIsHovering] = createSignal(false)
 
-  const last = isAltKeyPressed() ? <Icons.plusMac /> : <Icons.fullMac />
   const key = "Alt"
 
   const handleMouseEnter = () => {
@@ -81,7 +80,8 @@ export function MacOS(props: ComponentProps<"div">) {
         onClick={isAltKeyPressed() ? maximizeWindow : fullscreenWindow}
         class="aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#28c93f] text-center text-black/60 hover:bg-[#28c93f] active:bg-[#1e9930] active:text-black/60 dark:border-none"
       >
-        {isHovering() && last}
+        {isHovering() &&
+          (isAltKeyPressed() ? <Icons.plusMac /> : <Icons.fullMac />)}
       </Button>
     </div>
   )
