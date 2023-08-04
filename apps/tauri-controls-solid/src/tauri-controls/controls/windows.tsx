@@ -6,7 +6,7 @@ import {
   closeWindow,
   isWindowMaximized,
   maximizeWindow,
-  minimizeWindow
+  minimizeWindow,
 } from "../libs/plugin-window"
 
 export function Windows(props: ComponentProps<"div">) {

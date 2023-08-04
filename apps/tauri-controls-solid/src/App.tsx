@@ -1,5 +1,5 @@
 import "./style.css"
-import { createSignal, For } from "solid-js"
+import { For } from "solid-js"
 import { WindowControls } from "./tauri-controls/window-controls"
 import { WindowTitlebar } from "./tauri-controls/window-titlebar"
 
@@ -37,7 +37,7 @@ function App() {
           controlsOrder="right"
           windowControlsProps={{
             platform: "macos",
-            class: "bg-rose-700 rounded-full p-2"
+            class: "bg-rose-700 rounded-full p-2",
           }}
         >
           <div class="flex items-center justify-center rounded-full bg-sky-500 px-2">
@@ -48,7 +48,7 @@ function App() {
           controlsOrder="left"
           windowControlsProps={{
             platform: "windows",
-            class: "bg-rose-700 rounded-full overflow-hidden"
+            class: "bg-rose-700 rounded-full overflow-hidden",
           }}
         >
           <div class="flex items-center justify-center rounded-full bg-sky-500 px-2">
@@ -60,22 +60,22 @@ function App() {
   )
 }
 
-const Content = () => {
-  const Inside = () => <span class="border border-black/[.07]">Content</span>
-  return (
-    <>
-      <div class="flex w-full items-center justify-center bg-yellow-300">
-        <Inside />
-      </div>
-      <div class="flex w-full items-center justify-center bg-rose-300">
-        <Inside />
-      </div>
-      <div class="flex w-[1300px] items-center justify-center bg-sky-300">
-        <Inside />
-      </div>
-    </>
-  )
-}
+// const Content = () => {
+//   const Inside = () => <span class="border border-black/[.07]">Content</span>
+//   return (
+//     <>
+//       <div class="flex w-full items-center justify-center bg-yellow-300">
+//         <Inside />
+//       </div>
+//       <div class="flex w-full items-center justify-center bg-rose-300">
+//         <Inside />
+//       </div>
+//       <div class="flex w-[1300px] items-center justify-center bg-sky-300">
+//         <Inside />
+//       </div>
+//     </>
+//   )
+// }
 
 const platforms = ["gnome"] //["windows", "macos", "gnome"]
 
@@ -109,7 +109,7 @@ const IMTC = ({ platform }: any) => {
       controlsOrder="platform"
       class="h-10 rounded-t-lg  bg-white shadow dark:bg-slate-800"
       windowControlsProps={{
-        platform: platform
+        platform: platform,
       }}
       data-tauri-drag-region
     >
@@ -138,33 +138,33 @@ const Menu = () => {
   )
 }
 
-const ThemeSwitcher = () => {
-  const [isDarkTheme, setIsDarkTheme] = createSignal(true)
+// const ThemeSwitcher = () => {
+//   const [isDarkTheme, setIsDarkTheme] = createSignal(true)
 
-  const handleToggleTheme = () => {
-    setIsDarkTheme((prevState) => !prevState)
-  }
+//   const handleToggleTheme = () => {
+//     setIsDarkTheme((prevState) => !prevState)
+//   }
 
-  // Add the "dark" class to the <html> element based on the theme selection
-  if (isDarkTheme()) {
-    document.documentElement.classList.add("dark")
-  } else {
-    document.documentElement.classList.remove("dark")
-  }
+//   // Add the "dark" class to the <html> element based on the theme selection
+//   if (isDarkTheme()) {
+//     document.documentElement.classList.add("dark")
+//   } else {
+//     document.documentElement.classList.remove("dark")
+//   }
 
-  return (
-    <div class="flex items-center gap-1 pt-6">
-      <label for="theme-toggle">Dark Theme:</label>
-      <input
-        type="checkbox"
-        id="theme-toggle"
-        checked={isDarkTheme()}
-        onChange={handleToggleTheme}
-        class="h-4 w-4"
-      />
-    </div>
-  )
-}
+//   return (
+//     <div class="flex items-center gap-1 pt-6">
+//       <label for="theme-toggle">Dark Theme:</label>
+//       <input
+//         type="checkbox"
+//         id="theme-toggle"
+//         checked={isDarkTheme()}
+//         onChange={handleToggleTheme}
+//         class="h-4 w-4"
+//       />
+//     </div>
+//   )
+// }
 
 const ThemeSwitch = () => {
   function toggle() {

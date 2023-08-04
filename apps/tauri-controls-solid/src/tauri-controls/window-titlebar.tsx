@@ -12,12 +12,12 @@ export function WindowTitlebar(props: WindowTitlebarProps) {
     "children",
     "controlsOrder",
     "class",
-    "windowControlsProps"
+    "windowControlsProps",
   ])
 
   const local = mergeProps(
     {
-      controlsOrder: "system"
+      controlsOrder: "system",
     },
     rawLocal
   )
@@ -46,7 +46,7 @@ export function WindowTitlebar(props: WindowTitlebarProps) {
     return {
       justify: false,
       class: twMerge(windowControlsClassName, ml),
-      ...restProps
+      ...restProps,
     }
   }
 

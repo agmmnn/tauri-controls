@@ -3,7 +3,7 @@ import {
   onCleanup,
   onMount,
   splitProps,
-  type ComponentProps
+  type ComponentProps,
 } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import { Button } from "../components/button"
@@ -12,7 +12,7 @@ import {
   closeWindow,
   fullscreenWindow,
   maximizeWindow,
-  minimizeWindow
+  minimizeWindow,
 } from "../libs/plugin-window"
 
 export function MacOS(props: ComponentProps<"div">) {

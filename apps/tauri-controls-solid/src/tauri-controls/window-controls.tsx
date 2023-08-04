@@ -10,14 +10,14 @@ export function WindowControls(props: WindowControlsProps) {
     "hideMethod",
     "hide",
     "platform",
-    "justify"
+    "justify",
   ])
 
   const local = mergeProps(
     {
       justify: false,
       hide: false,
-      hideMethod: "display"
+      hideMethod: "display",
     },
     rawLocal
   )
