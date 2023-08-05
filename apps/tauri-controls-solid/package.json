@@ -2,18 +2,8 @@
   "name": "@tauri-controls/solid",
   "description": "🚥 Native-looking window controls for Tauri 2.",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agmmnn/tauri-controls"
-  },
-  "keywords": [],
-  "author": "agmmnn",
-  "bugs": {
-    "url": "https://github.com/agmmnn/tauri-controls/issues"
-  },
-  "homepage": "https://github.com/agmmnn/tauri-controls#readme",
   "license": "MIT",
   "scripts": {
     "start": "vite",
@@ -27,6 +17,16 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agmmnn/tauri-controls"
+  },
+  "keywords": [],
+  "author": "agmmnn",
+  "bugs": {
+    "url": "https://github.com/agmmnn/tauri-controls/issues"
+  },
+  "homepage": "https://github.com/agmmnn/tauri-controls#readme",
   "files": [
     "dist"
   ],
@@ -51,7 +51,7 @@
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
     "vite": "^4.4.8",
-    "vite-plugin-dts": "^3.4.0",
+    "vite-plugin-dts": "^3.5.0",
     "vite-plugin-solid": "^2.7.0"
   },
   "peerDependencies": {

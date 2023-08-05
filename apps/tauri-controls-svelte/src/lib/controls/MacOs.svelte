@@ -1,5 +1,5 @@
 <script>
-  import { BROWSER } from 'esm-env'
+  import { BROWSER } from "esm-env"
   import Button from "$lib/components/Button.svelte"
   import Icons from "$lib/components/Icons.svelte"
   import { cn } from "$lib/utils/utils"

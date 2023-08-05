@@ -3,8 +3,8 @@
   <img alt="Tauri Controls" src="https://github.com/agmmnn/tauri-controls/assets/16024979/12f46aa7-72de-4c44-aa4a-0580c73fc73a">
 </picture>
 
-![](https://img.shields.io/bundlephobia/min/tauri-controls)
-![](https://img.shields.io/bundlephobia/minzip/tauri-controls)
+[![](https://img.shields.io/bundlephobia/min/tauri-controls)](https://bundlephobia.com/)
+[![](https://img.shields.io/bundlephobia/minzip/tauri-controls)](https://bundlephobia.com/)
 [![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://www.npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/Svelte-4A4A55?logo=svelte&logoColor=FF3E00)](https://www.npmjs.com/package/@tauri-controls/svelte) [![SolidJS](https://img.shields.io/badge/SolidJS-2c4f7c?logo=solid&logoColor=c8c9cb)](https://www.npmjs.com/package/@tauri-controls/solid)
 
 **Tauri Controls** is a library that provides native-looking **window controls** for [Tauri 2](https://beta.tauri.app) applications. You can enhance the user experience of your Tauri 2 applications with window controls that mimic the identical native controls on the current system.
@@ -132,28 +132,21 @@ For Svelte:
 
 ### `WindowTitlebar`:
 
-- `controlsOrder?: "right" | "left" | "platform" | "system"`: Specifies the order of window controls. **platform**: Gets OS-based positioning specified in windowControlsProps.
-  **system**: Automatically detects the platform and positions the controls accordingly, this is the default behavior.
+- `controlsOrder?: "right" | "left" | "platform" | "system"`: Specifies the order of window controls. **platform**: to get OS-based positioning specified in _windowControlsProps_.
+  **system**: to automatically detect the platform and position the controls accordingly (default).
 - `windowControlsProps?: WindowControlsProps`: Additional props to pass to the `WindowControls` component.
 
 ### `WindowControls`:
 
-- `platform?: "windows" | "macos" | "gnome"`: Specifies which platform's window controls to display. If the platform property is not specified, the library will automatically detect the operating system the app is running on and display the appropriate element.
+- `platform?: "windows" | "macos" | "gnome"`: Specifies which platform's window controls to display. If the _platform_ property is not specified, the library will automatically detect the operating system the app is running on and display the appropriate element.
 - `justify?: boolean`: If set to `true`, `WindowControls` will justify/snap in the flexbox where it is located.
 - `hide?: boolean`: If set to `true`, the window controls will be hidden.
-- `hideMethod?: "display" | "visibility"`: Determines how the window controls will be hidden. Options are "display" (default) and "visibility".
+- `hideMethod?: "display" | "visibility"`: Determines how the window controls will be hidden.
 
-Additionally, you can pass additional props to elements for further enhancements, like `data-tauri-drag-region`.
+You can also provide additional props to elements, such as `data-tauri-drag-region`, for further enhancements.
 
 ![Example](https://i.imgur.com/OAO22HC.png)
 ![Example](https://i.imgur.com/hq389kn.png)
-
-# To-Do
-
-- [x] If no platform is specified, the side of the controls will also be determined automatically. (e.g. MacOS left, others right)
-- [x] Next.js/SSR support.
-- [x] Svelte/SvelteKit implementation.
-- [ ] Detect disabled window controls (is_maximizable, ...) and disable the buttons accordingly.
 
 ## Figma
 
@@ -166,7 +159,7 @@ These sources were utilized:
 - [macOS Monterey UI Kit for Figma](https://www.figma.com/community/file/1034539431656086181/macOS-Monterey-UI-Kit-for-Figma) @joey
 - [Spotify Desktop App Clone](https://www.figma.com/community/file/1028665514709480268/Spotify-Desktop-App-Clone) @uidesignguide
 
-## Dev
+## Development and Contribution
 
 ```bash
 pnpm dev
@@ -174,17 +167,21 @@ pnpm dev
 pnpm tauri:dev
 ```
 
-```
+Project Structure:
+
+```bash
 .
 ├── /apps
-│   ├── /tauri-controls
-│   ├── /tauri-controls-solid
-│   └── /tauri-controls-svelte
-├── /packages
-├── package.json
-├── pnpm-workspace.yaml
-└── turbo.json
+│   ├── /tauri-controls            # Main application (React)
+│   ├── /tauri-controls-solid      # Solid.js implementation
+│   └── /tauri-controls-svelte     # Svelte implementation
+├── /packages                       # Shared packages
+├── package.json                    # Project configuration
+├── pnpm-workspace.yaml             # Workspace configuration
+└── turbo.json                      # TurboRepo configuration
 ```
+
+If you're interested in contributing, check out our [TODO list](https://github.com/agmmnn/tauri-controls/blob/master/TODOs.md) for tasks you can help with. Your contributions are appreciated!
 
 ## Further Reading
 

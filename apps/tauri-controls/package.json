@@ -2,18 +2,8 @@
   "name": "tauri-controls",
   "description": "🚥 Native-looking window controls for Tauri 2.",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agmmnn/tauri-controls"
-  },
-  "keywords": [],
-  "author": "agmmnn",
-  "bugs": {
-    "url": "https://github.com/agmmnn/tauri-controls/issues"
-  },
-  "homepage": "https://github.com/agmmnn/tauri-controls#readme",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -25,9 +15,15 @@
     "tauri": "tauri",
     "tauri:dev": "tauri dev"
   },
-  "publishConfig": {
-    "access": "public"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agmmnn/tauri-controls"
   },
+  "author": "agmmnn",
+  "bugs": {
+    "url": "https://github.com/agmmnn/tauri-controls/issues"
+  },
+  "homepage": "https://github.com/agmmnn/tauri-controls#readme",
   "files": [
     "dist"
   ],
@@ -45,7 +41,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@rollup/plugin-terser": "^0.4.3",
     "@tauri-apps/cli": "^2.0.0-alpha.10",
-    "@types/node": "^20.4.6",
+    "@types/node": "^20.4.8",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
@@ -60,12 +56,12 @@
     "postcss": "^8.4.27",
     "prettier": "^3.0.1",
     "prettier-plugin-tailwindcss": "^0.4.1",
-    "rollup": "^3.27.1",
+    "rollup": "^3.27.2",
     "rollup-plugin-postcss": "^4.0.2",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
     "vite": "^4.4.8",
-    "vite-plugin-dts": "^3.4.0",
+    "vite-plugin-dts": "^3.5.0",
     "vite-plugin-linter": "^2.0.2",
     "vite-tsconfig-paths": "^4.2.0"
   },

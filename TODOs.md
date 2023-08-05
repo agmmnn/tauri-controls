@@ -1,21 +1,24 @@
-TODOs / Knowing issues:
+# TODOs / Known Issues:
 
-> ticked ones have been implemented or fixed.
+> Ticked items have been implemented or fixed.
 
 ### tauri-controls (General):
 
-- [] Detect disabled window controls #7
-- [] \[MacOS] When the window is max(fullscreen), the max icon should be unmax. [📷](https://i.imgur.com/7FmMOZN.png)
-- [] Other Linux DEs default themes Budgie/KDE
+- [x] Auto-determine controls position if no platform is specified (e.g., MacOS left, others right).
+- [x] Next.js/SSR support.
+- [x] Svelte/SvelteKit implementation.
+- [ ] Detect disabled window controls and disable the buttons accordingly. [#7](https://github.com/agmmnn/tauri-controls/issues/7)
+- [ ] \[MacOS] Adjust max icon behavior when window is fullscreen. [📷](https://i.imgur.com/7FmMOZN.png)
+- [ ] Extend support to other Linux DEs' default themes, Budgie/KDE.
 
 ### tauri-controls (React):
 
-- []
+- [ ]
 
 ### @tauri-controls/svelte:
 
-- [] Maximize icon does not change (to Unmaximie) when the window is maximized.
+- [ ] Maximize icon does not change to "Unmaximize" when the window is maximized.
 
 ### @tauri-controls/solid:
 
-- []
+- [ ]
