@@ -15,6 +15,9 @@
     "tauri": "tauri",
     "tauri:dev": "tauri dev"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/agmmnn/tauri-controls"

@@ -8,6 +8,7 @@
     "build:watch": "turbo run build:watch",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\" && turbo run format",
+    "publish-packages": "turbo run build && changeset version && changeset publish",
     "taze": "taze minor -r -w -i false -I",
     "taze:major": "taze major -r -w -i false -I",
     "tauri:dev": "turbo run tauri:dev"
@@ -16,6 +17,7 @@
     "@tauri-apps/api": "2.0.0-alpha.5",
     "@tauri-apps/cli": "^1.4.0",
     "@turbo/gen": "^1.10.12",
+    "@changesets/cli": "^2.26.2",
     "eslint": "^8.46.0",
     "eslint-config-custom": "workspace:*",
     "prettier": "^3.0.1",
