@@ -5,7 +5,9 @@
 
 [![](https://img.shields.io/bundlephobia/min/tauri-controls)](https://bundlephobia.com/)
 [![](https://img.shields.io/bundlephobia/minzip/tauri-controls)](https://bundlephobia.com/)
-[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://www.npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/Svelte-4A4A55?logo=svelte&logoColor=FF3E00)](https://www.npmjs.com/package/@tauri-controls/svelte) [![SolidJS](https://img.shields.io/badge/SolidJS-2c4f7c?logo=solid&logoColor=c8c9cb)](https://www.npmjs.com/package/@tauri-controls/solid)
+[![](https://img.shields.io/npm/dt/tauri-controls)](https://npmjs.com/package/tauri-controls)
+
+[![](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://www.npmjs.com/package/tauri-controls) [![](https://img.shields.io/badge/Svelte-4A4A55?logo=svelte&logoColor=FF3E00)](https://www.npmjs.com/package/@tauri-controls/svelte) [![SolidJS](https://img.shields.io/badge/SolidJS-2c4f7c?logo=solid&logoColor=c8c9cb)](https://www.npmjs.com/package/@tauri-controls/solid) [![Vue.js](https://img.shields.io/badge/Vue.js-%2335495e.svg?logo=vuedotjs&logoColor=%234FC08D)](https://www.npmjs.com/package/@tauri-controls/vue)
 
 **Tauri Controls** is a library that provides native-looking **window controls** for [Tauri 2](https://beta.tauri.app) applications. You can enhance the user experience of your Tauri 2 applications with window controls that mimic the identical native controls on the current system.
 
