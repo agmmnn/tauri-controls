@@ -10,6 +10,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\" && turbo run format",
     "publish-packages": "turbo run build && changeset version && changeset publish",
     "taze": "taze minor -r -w -i false -I",
+    "changeset": "changeset",
     "taze:major": "taze major -r -w -i false -I",
     "tauri:dev": "turbo run tauri:dev"
   },
