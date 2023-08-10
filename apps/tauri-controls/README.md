@@ -185,6 +185,14 @@ Project Structure:
 
 If you're interested in contributing, check out our [TODO list](https://github.com/agmmnn/tauri-controls/blob/master/TODOs.md) for tasks you can help with. Your contributions are appreciated!
 
+## Contributors
+
+This project is made possible by the contributions of various individuals. Thank you to all the contributors who have helped make this project better.
+
+- **[tauri-controls](https://www.npmjs.com/package/tauri-controls), [@tauri-controls/svelte](https://www.npmjs.com/package/@tauri-controls/svelte)**: [@agmmnn](https://github.com/agmmnn)
+- **[@tauri-controls/solid](https://www.npmjs.com/package/@tauri-controls/solid)**: [@ronanru](https://github.com/ronanru)
+- **[@tauri-controls/vue](https://www.npmjs.com/package/@tauri-controls/vue)**: [@allenli178](https://github.com/allenli178)
+
 ## Further Reading
 
 - [Feature request: Add setting for titlebar style with native window controls support - tauri-apps/tauri#2663](https://github.com/tauri-apps/tauri/issues/2663)
