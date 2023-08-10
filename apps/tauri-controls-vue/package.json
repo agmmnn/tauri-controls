@@ -2,7 +2,7 @@
   "name": "@tauri-controls/vue",
   "description": "🚥 Native-looking window controls for Tauri 2.",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
@@ -45,12 +45,12 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
-    "prettier-plugin-tailwindcss": "^0.4.1",
+    "prettier-plugin-tailwindcss": "^0.5.1",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
-    "vite": "^4.4.4",
-    "vite-plugin-dts": "^3.5.0",
-    "vue-tsc": "^1.8.5"
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.1",
+    "vue-tsc": "^1.8.8"
   },
   "peerDependencies": {
     "@tauri-apps/plugin-os": "2.0.0-alpha.0",
