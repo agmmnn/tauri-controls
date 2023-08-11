@@ -65,4 +65,3 @@ const platforms: platform[] = ["windows", "macos", "gnome"]
     </WindowTitlebar>
   </div>
 </template>
-./tauri-controls/lib

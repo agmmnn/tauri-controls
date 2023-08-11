@@ -32,7 +32,7 @@ export default defineConfig(async () => ({
           "tailwind-merge": "tailwindMerge",
           "@tauri-apps/plugin-window": "pluginWindow",
         },
-        intro: 'import "./styles.css";',
+        intro: 'import "./style.css";',
         plugins: [terser()],
       },
     },
