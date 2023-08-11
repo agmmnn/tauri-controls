@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
-  "changelog": "@changesets/cli/changelog",
-  "access": "restricted",
+  "changelog": "@changesets/changelog-git",
+  "access": "public",
   "baseBranch": "master",
   "commit": false,
   "fixed": [],
