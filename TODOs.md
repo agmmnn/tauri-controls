@@ -8,12 +8,13 @@
 - [x] Next.js/SSR support.
 - [x] Svelte/SvelteKit implementation.
 - [ ] Detect disabled window controls and disable the buttons accordingly. [#7](https://github.com/agmmnn/tauri-controls/issues/7)
-- [ ] \[MacOS] Adjust max icon behavior when window is fullscreen. [📷](https://i.imgur.com/7FmMOZN.png)
+- [ ] \[macOS] Adjust max icon behavior when window is fullscreen. [📷](https://i.imgur.com/7FmMOZN.png)
 - [ ] Extend support to other Linux DEs' default themes, Budgie/KDE.
+- [ ] \[macOS] Option to hide controls -like `hide` but- only if the window is fullscreen and on macOS.
 
 ### tauri-controls (React):
 
-- [ ]
+- [ ] \[macOS] IsWindowMaximized not work on macOS (react, solid). [#10](https://github.com/agmmnn/tauri-controls/issues/10)
 
 ### @tauri-controls/svelte:
 
@@ -21,7 +22,7 @@
 
 ### @tauri-controls/solid:
 
-- [ ]
+- [ ] \[macOS] IsWindowMaximized not work on macOS (react, solid). [#10](https://github.com/agmmnn/tauri-controls/issues/10)
 
 ### @tauri-controls/vue:
 
