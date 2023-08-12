@@ -58,10 +58,11 @@
         }
       ]
     },
+    "macOSPrivateApi": true,
     "windows": [
       {
         "fullscreen": false,
-        "title": "tauri-demo",
+        "title": "Demo-Vue",
         "center": true,
         "transparent": true,
         "decorations": false,

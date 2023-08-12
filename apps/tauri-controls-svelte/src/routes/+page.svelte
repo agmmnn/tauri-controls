@@ -11,10 +11,10 @@
   <title>Demo-Svelte</title>
 </svelte:head>
 
-<div>
-  <div
-    class="flex flex-col w-[960px] gap-3 py-6 px-14 text-black dark:text-white"
-  >
+<div
+  class="h-screen overflow-auto bg-slate-200 text-black/90 dark:bg-slate-900 dark:text-white"
+>
+  <div class="flex w-[960px] flex-col space-y-3 px-14 py-6">
     <ThemeSwitch />
     <span class="w-fit rounded bg-orange-200/20 px-2 font-mono"
       >@tauri-controls/svelte</span
@@ -26,7 +26,7 @@
     </span>
     <!-- OnlyControls  -->
     <div
-      class="flex w-fit gap-3 rounded-xl border border-dashed border-slate-400 p-3 shadow dark:border-slate-600"
+      class="flex w-fit space-x-3 rounded-xl border border-dashed border-slate-400 p-3 shadow dark:border-slate-600"
     >
       {#each platforms as platform}
         <WindowControls {platform} />
@@ -110,7 +110,7 @@
             <path d="M10 2v16" />
           </svg>
           <div
-            class="flex flex-row gap-2 whitespace-nowrap rounded-md px-2 py-1 shadow"
+            class="flex flex-row space-x-2 whitespace-nowrap rounded-md px-2 py-1 shadow"
           >
             {#each menuItems as x (x)}
               <span>{x}</span>

@@ -55,10 +55,11 @@
         }
       ]
     },
+    "macOSPrivateApi": true,
     "windows": [
       {
         "fullscreen": false,
-        "title": "Tauri Demo",
+        "title": "Demo-Svelte",
         "center": true,
         "resizable": true,
         "decorations": false,

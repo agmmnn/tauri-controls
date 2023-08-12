@@ -5,8 +5,8 @@ import { WindowTitlebar } from "./tauri-controls/window-titlebar"
 
 function App() {
   return (
-    <div>
-      <div className="flex w-[960px] flex-col gap-3 px-14 py-6">
+    <div className="h-screen overflow-auto bg-slate-200 text-black/90 dark:bg-slate-900 dark:text-white">
+      <div className="flex w-[960px] flex-col space-y-3 px-14 py-6">
         <ThemeSwitch />
         <span className="w-fit rounded bg-violet-200/20 px-2 font-mono">
           tauri-controls
@@ -15,7 +15,7 @@ function App() {
           WindowControls
         </span>
         {/* OnlyControls */}
-        <div className="flex w-fit gap-3 rounded-xl border border-dashed border-slate-400 p-3  shadow dark:border-slate-600">
+        <div className="flex w-fit space-x-3 rounded-xl border border-dashed border-slate-400 p-3  shadow dark:border-slate-600">
           {platforms.map((x) => (
             <OnlyControls key={x} platform={x} />
           ))}
@@ -140,7 +140,7 @@ const Menu = () => {
   const items = ["File", "Edit", "View", "Account", "Theme"]
 
   return (
-    <div className="flex flex-row gap-2 whitespace-nowrap rounded-md px-2 py-1 shadow">
+    <div className="flex flex-row space-x-2 whitespace-nowrap rounded-md px-2 py-1 shadow">
       {items.map((x) => (
         <span key={x}>{x}</span>
       ))}
