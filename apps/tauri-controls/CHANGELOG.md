@@ -1,5 +1,14 @@
 # tauri-controls
 
+## 0.1.2
+
+### Patch Changes
+
+- fix(react,solid): temp disable isWindowMaximized on macOS #10
+  chore: demo-app gap to space, update deps, format code
+  feat: gnome more accurate button spacing, fix icons sizes (svelte, vue)
+  feat: macos controls use space instead of mr, px-2 to px-3
+
 ## 0.1.1
 
 ### Patch Changes
