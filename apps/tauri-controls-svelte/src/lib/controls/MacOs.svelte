@@ -1,5 +1,4 @@
 <script>
-  import { BROWSER } from "esm-env"
   import Button from "$lib/components/Button.svelte"
   import Icons from "$lib/components/Icons.svelte"
   import { cn } from "$lib/utils/utils"
@@ -10,6 +9,7 @@
     maximizeWindow,
     minimizeWindow
   } from "$lib/utils/window"
+  import { BROWSER } from "esm-env"
   import { onDestroy, onMount } from "svelte"
 
   onMount(async () => {
@@ -66,13 +66,13 @@
   on:mouseenter={handleMouseEnter}
   on:mouseleave={handleMouseLeave}
   class={cn(
-    "px-2 text-black active:text-black dark:text-black cursor-default",
+    "space-x-2 px-3 text-black active:text-black dark:text-black cursor-default",
     $$props.class
   )}
 >
   <Button
     on:click={closeWindow}
-    class="mr-2 aspect-square h-3 w-3 content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#ff544d] text-center text-black/60 hover:bg-[#ff544d] active:bg-[#bf403a] active:text-black/60 dark:border-none"
+    class="aspect-square h-3 w-3 content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#ff544d] text-center text-black/60 hover:bg-[#ff544d] active:bg-[#bf403a] active:text-black/60 dark:border-none"
   >
     {#if isHovering}
       <Icons icon="closeMac" />
@@ -80,7 +80,7 @@
   </Button>
   <Button
     on:click={minimizeWindow}
-    class="mr-2 aspect-square h-3 w-3 content-center items-center justify-center self-center rounded-full border border-black/[.12]  bg-[#ffbd2e] text-center text-black/60 hover:bg-[#ffbd2e] active:bg-[#bf9122] active:text-black/60 dark:border-none"
+    class="aspect-square h-3 w-3 content-center items-center justify-center self-center rounded-full border border-black/[.12]  bg-[#ffbd2e] text-center text-black/60 hover:bg-[#ffbd2e] active:bg-[#bf9122] active:text-black/60 dark:border-none"
   >
     {#if isHovering}
       <Icons icon="minMac" />

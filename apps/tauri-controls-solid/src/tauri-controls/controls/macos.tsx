@@ -55,7 +55,7 @@ export function MacOS(props: ComponentProps<"div">) {
   return (
     <div
       class={twMerge(
-        "px-2 text-black active:text-black dark:text-black",
+        "space-x-2 px-3 text-black active:text-black dark:text-black",
         local.class
       )}
       onMouseEnter={handleMouseEnter}
@@ -64,13 +64,13 @@ export function MacOS(props: ComponentProps<"div">) {
     >
       <Button
         onClick={closeWindow}
-        class="mr-2 aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#ff544d] text-center text-black/60 hover:bg-[#ff544d] active:bg-[#bf403a] active:text-black/60 dark:border-none"
+        class="aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12] bg-[#ff544d] text-center text-black/60 hover:bg-[#ff544d] active:bg-[#bf403a] active:text-black/60 dark:border-none"
       >
         {isHovering() && <Icons.closeMac />}
       </Button>
       <Button
         onClick={minimizeWindow}
-        class="mr-2 aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12]  bg-[#ffbd2e] text-center text-black/60 hover:bg-[#ffbd2e] active:bg-[#bf9122] active:text-black/60 dark:border-none"
+        class="aspect-square h-3 w-3 cursor-default content-center items-center justify-center self-center rounded-full border border-black/[.12]  bg-[#ffbd2e] text-center text-black/60 hover:bg-[#ffbd2e] active:bg-[#bf9122] active:text-black/60 dark:border-none"
       >
         {isHovering() && <Icons.minMac />}
       </Button>
