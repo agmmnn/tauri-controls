@@ -1,5 +1,6 @@
 import type { WebviewWindow } from "@tauri-apps/plugin-window"
 import React, { createContext, useCallback, useEffect, useState } from "react"
+import { getOsType } from "../libs/plugin-os"
 
 interface TauriAppWindowContextType {
   appWindow: WebviewWindow | null
@@ -22,6 +23,10 @@ const TauriAppWindowContext = createContext<TauriAppWindowContextType>({
 interface TauriAppWindowProviderProps {
   children: React.ReactNode
 }
+
+// dynamically import tauri plugins for next.js, sveltekit, nuxt etc. support:
+// https://github.com/agmmnn/tauri-controls/issues/6
+// https://github.com/tauri-apps/plugins-workspace/issues/217
 
 export const TauriAppWindowProvider: React.FC<TauriAppWindowProviderProps> = ({
   children,
@@ -47,20 +52,25 @@ export const TauriAppWindowProvider: React.FC<TauriAppWindowProviderProps> = ({
   }, [appWindow])
 
   useEffect(() => {
-    updateIsWindowMaximized()
-    let unlisten: () => void = () => {}
+    getOsType().then((osname) => {
+      // temporary: https://github.com/agmmnn/tauri-controls/issues/10#issuecomment-1675884962
+      if (osname !== "Darwin") {
+        updateIsWindowMaximized()
+        let unlisten: () => void = () => {}
 
-    const listen = async () => {
-      if (appWindow) {
-        unlisten = await appWindow.onResized(() => {
-          updateIsWindowMaximized()
-        })
+        const listen = async () => {
+          if (appWindow) {
+            unlisten = await appWindow.onResized(() => {
+              updateIsWindowMaximized()
+            })
+          }
+        }
+        listen()
+
+        // Cleanup the listener when the component unmounts
+        return () => unlisten && unlisten()
       }
-    }
-    listen()
-
-    // Cleanup the listener when the component unmounts
-    return () => unlisten && unlisten()
+    })
   }, [appWindow, updateIsWindowMaximized])
 
   const minimizeWindow = async () => {
