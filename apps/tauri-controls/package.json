@@ -2,7 +2,7 @@
   "name": "tauri-controls",
   "description": "🚥 Native-looking window controls for Tauri 2.",
   "private": false,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "type": "module",
   "license": "MIT",
   "scripts": {

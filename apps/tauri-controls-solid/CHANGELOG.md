@@ -1,5 +1,11 @@
 # @tauri-controls/solid
 
+## 0.1.3
+
+### Patch Changes
+
+- fix: package.json types export
+
 ## 0.1.2
 
 ### Patch Changes
