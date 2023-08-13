@@ -30,7 +30,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/tauri-controls.js"
+      "import": "./dist/tauri-controls.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "module": "./dist/tauri-controls.js",
