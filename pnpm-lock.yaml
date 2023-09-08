@@ -150,7 +150,7 @@ importers:
         version: 2.0.0-alpha.0
       '@tauri-apps/plugin-window':
         specifier: 2.0.0-alpha.0
-        version: 2.0.0-alpha.0
+        version: 2.0.0-alpha.1
       solid-js:
         specifier: ^1.7.8
         version: 1.7.8

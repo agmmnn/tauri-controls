@@ -1,19 +1,13 @@
-import type { WebviewWindow } from "@tauri-apps/plugin-window"
+import { getCurrent } from "@tauri-apps/plugin-window"
 import { createEffect, createSignal, onCleanup } from "solid-js"
 import { getOsType } from "./plugin-os"
 
-export const [appWindow, setAppWindow] = createSignal<WebviewWindow | null>(
-  null
-)
+export const appWindow = getCurrent()
 export const [isWindowMaximized, setIsWindowMaximized] = createSignal(false)
-
-import("@tauri-apps/plugin-window").then((module) => {
-  setAppWindow(module.appWindow)
-})
 
 // Update the isWindowMaximized state when the window is resized
 const updateIsWindowMaximized = async () => {
-  const window = appWindow()
+  const window = appWindow
   if (window) {
     const resolvedPromise = await window.isMaximized()
     setIsWindowMaximized(resolvedPromise)
@@ -27,7 +21,7 @@ createEffect(async () => {
     updateIsWindowMaximized()
     let unlisten: () => void = () => {}
 
-    const window = appWindow()
+    const window = appWindow
     if (window) {
       unlisten = await window.onResized(() => {
         updateIsWindowMaximized()
@@ -40,15 +34,15 @@ createEffect(async () => {
 })
 
 export const minimizeWindow = async () => {
-  await appWindow()?.minimize()
+  await appWindow.minimize()
 }
 
 export const maximizeWindow = async () => {
-  await appWindow()?.toggleMaximize()
+  await appWindow.toggleMaximize()
 }
 
 export const fullscreenWindow = async () => {
-  const window = appWindow()
+  const window = appWindow
   if (window) {
     const fullscreen = await window.isFullscreen()
     await window.setFullscreen(!fullscreen)
@@ -56,5 +50,5 @@ export const fullscreenWindow = async () => {
 }
 
 export const closeWindow = async () => {
-  await appWindow()?.close()
+  await appWindow.close()
 }
