@@ -55,7 +55,7 @@
   },
   "peerDependencies": {
     "@tauri-apps/plugin-os": "2.0.0-alpha.0",
-    "@tauri-apps/plugin-window": "2.0.0-alpha.0",
+    "@tauri-apps/plugin-window": "2.0.0-alpha.1",
     "tailwind-merge": "^1.14.0",
     "vue": "^3.3.4"
   }

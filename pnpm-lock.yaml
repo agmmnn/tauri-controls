@@ -313,8 +313,8 @@ importers:
         specifier: 2.0.0-alpha.0
         version: 2.0.0-alpha.0
       '@tauri-apps/plugin-window':
-        specifier: 2.0.0-alpha.0
-        version: 2.0.0-alpha.0
+        specifier: 2.0.0-alpha.1
+        version: 2.0.0-alpha.1
       '@vueuse/core':
         specifier: ^10.3.0
         version: 10.3.0(vue@3.3.4)
@@ -2065,12 +2065,6 @@ packages:
 
   /@tauri-apps/plugin-os@2.0.0-alpha.0:
     resolution: {integrity: sha512-vHZW/W/5bAvr1UnaXhRg29yDQUkBuCGlxtVDKUEUTvKEdbMrKLlFuzr8RxcczLI9CTDqQ/EP7xzn7XYYQWR82Q==}
-    dependencies:
-      '@tauri-apps/api': 2.0.0-alpha.4
-    dev: false
-
-  /@tauri-apps/plugin-window@2.0.0-alpha.0:
-    resolution: {integrity: sha512-ZXFXOu9m8QiDB8d8LFFgwcfxIAbr0bhzj06YvmZDB3isuVtlFP9EyU4D+zmumWEWvNN2XP7xgpn68ivOVhmNNQ==}
     dependencies:
       '@tauri-apps/api': 2.0.0-alpha.4
     dev: false
