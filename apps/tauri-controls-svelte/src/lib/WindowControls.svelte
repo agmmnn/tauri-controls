@@ -19,10 +19,10 @@
   // Determine the default platform based on the operating system if platform not specified
   if (!platform) {
     switch (osType) {
-      case "Darwin":
+      case "macos":
         platform = "macos"
         break
-      case "Linux":
+      case "linux":
         platform = "gnome"
         break
       default:

@@ -24,7 +24,7 @@ export function WindowTitlebar({
     controlsOrder === "left" ||
     (controlsOrder === "platform" &&
       windowControlsProps?.platform === "macos") ||
-    (controlsOrder === "system" && osType === "Darwin")
+    (controlsOrder === "system" && osType === "macos")
 
   const customProps = (ml: string) => {
     if (windowControlsProps?.justify !== undefined) return windowControlsProps

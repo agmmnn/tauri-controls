@@ -24,7 +24,7 @@ onMounted(() => {
 const left =
   controlsOrder === "left" ||
   (controlsOrder === "platform" && windowControlsProps?.platform === "macos") ||
-  (controlsOrder === "system" && osType.value === "Darwin")
+  (controlsOrder === "system" && osType.value === "macos")
 
 const customProps = (ml: string) => {
   if (windowControlsProps?.justify !== undefined) return windowControlsProps

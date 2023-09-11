@@ -32,7 +32,7 @@ export function WindowTitlebar(props: WindowTitlebarProps) {
     local.controlsOrder === "left" ||
     (local.controlsOrder === "platform" &&
       local.windowControlsProps?.platform === "macos") ||
-    (local.controlsOrder === "system" && osType() === "Darwin")
+    (local.controlsOrder === "system" && osType() === "macos")
 
   const customProps = (ml: string) => {
     if (local.windowControlsProps?.justify !== undefined)
