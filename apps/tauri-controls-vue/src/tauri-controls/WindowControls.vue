@@ -23,10 +23,10 @@ onMounted(() => {
   getOsType().then((type) => {
     if (!platform) {
       switch (type) {
-        case "Darwin":
+        case "macos":
           platform = "macos"
           break
-        case "Linux":
+        case "linux":
           platform = "gnome"
           break
         default:

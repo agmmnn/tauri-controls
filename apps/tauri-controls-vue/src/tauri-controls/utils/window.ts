@@ -1,25 +1,29 @@
-import { getCurrent } from "@tauri-apps/plugin-window"
+import type { Window } from "@tauri-apps/plugin-window"
 import { ref } from "vue"
 
-export const appWindow = getCurrent()
+export const appWindow = ref<Window | null>(null)
 export const isWindowMaximized = ref(false)
 
+import("@tauri-apps/plugin-window").then((module) => {
+  appWindow.value = module.getCurrent()
+})
+
 export const minimizeWindow = async () => {
-  await appWindow.minimize()
+  await appWindow.value?.minimize()
 }
 
 export const maximizeWindow = async () => {
-  await appWindow.toggleMaximize()
+  await appWindow.value?.toggleMaximize()
   isWindowMaximized.value = !isWindowMaximized.value
 }
 
 export const fullscreenWindow = async () => {
   if (appWindow) {
-    const fullscreen = await appWindow.isFullscreen()
-    await appWindow.setFullscreen(!fullscreen)
+    const fullscreen = await appWindow.value?.isFullscreen()
+    await appWindow.value?.setFullscreen(!fullscreen)
   }
 }
 
 export const closeWindow = async () => {
-  await appWindow.close()
+  await appWindow.value?.close()
 }

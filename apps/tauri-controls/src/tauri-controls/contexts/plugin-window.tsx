@@ -1,4 +1,4 @@
-import { getCurrent, Window } from "@tauri-apps/plugin-window"
+import type { Window } from "@tauri-apps/plugin-window"
 import React, { createContext, useCallback, useEffect, useState } from "react"
 import { getOsType } from "../libs/plugin-os"
 
@@ -24,35 +24,35 @@ interface TauriAppWindowProviderProps {
   children: React.ReactNode
 }
 
-// dynamically import tauri plugins for next.js, sveltekit, nuxt etc. support:
-// https://github.com/agmmnn/tauri-controls/issues/6
-// https://github.com/tauri-apps/plugins-workspace/issues/217
-
 export const TauriAppWindowProvider: React.FC<TauriAppWindowProviderProps> = ({
   children,
 }: any) => {
   const [appWindow, setAppWindow] = useState<Window | null>(null)
   const [isWindowMaximized, setIsWindowMaximized] = useState(false)
 
-  // Fetch the Tauri app window when the component mounts
+  // Fetch the Tauri window plugin when the component mounts
+  // Dynamically import plugin-window for next.js, sveltekit, nuxt etc. support:
+  // https://github.com/tauri-apps/plugins-workspace/issues/217
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setAppWindow(getCurrent())
+      import("@tauri-apps/plugin-window").then((module) => {
+        setAppWindow(module.getCurrent())
+      })
     }
   }, [])
 
   // Update the isWindowMaximized state when the window is resized
   const updateIsWindowMaximized = useCallback(async () => {
     if (appWindow) {
-      const resolvedPromise = await appWindow.isMaximized()
-      setIsWindowMaximized(resolvedPromise)
+      const _isWindowMaximized = await appWindow.isMaximized()
+      setIsWindowMaximized(_isWindowMaximized)
     }
   }, [appWindow])
 
   useEffect(() => {
     getOsType().then((osname) => {
       // temporary: https://github.com/agmmnn/tauri-controls/issues/10#issuecomment-1675884962
-      if (osname !== "Darwin") {
+      if (osname !== "macos") {
         updateIsWindowMaximized()
         let unlisten: () => void = () => {}
 

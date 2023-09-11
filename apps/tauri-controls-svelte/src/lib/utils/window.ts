@@ -1,9 +1,10 @@
-import { type Window, getCurrent } from "@tauri-apps/plugin-window"
+import type { Window } from "@tauri-apps/plugin-window"
 
 export let appWindow: Window
 
 export const initializeAppWindow = async () => {
-  appWindow = getCurrent()
+  const { getCurrent: windowPlugin } = await import("@tauri-apps/plugin-window")
+  appWindow = windowPlugin()
 }
 
 export const minimizeWindow = () => {

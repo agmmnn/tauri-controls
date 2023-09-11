@@ -1,13 +1,17 @@
-import { getCurrent } from "@tauri-apps/plugin-window"
+import type { Window } from "@tauri-apps/plugin-window"
 import { createEffect, createSignal, onCleanup } from "solid-js"
 import { getOsType } from "./plugin-os"
 
-export const appWindow = getCurrent()
+export const [appWindow, setAppWindow] = createSignal<Window | null>(null)
 export const [isWindowMaximized, setIsWindowMaximized] = createSignal(false)
+
+import("@tauri-apps/plugin-window").then((module) => {
+  setAppWindow(module.getCurrent())
+})
 
 // Update the isWindowMaximized state when the window is resized
 const updateIsWindowMaximized = async () => {
-  const window = appWindow
+  const window = appWindow()
   if (window) {
     const resolvedPromise = await window.isMaximized()
     setIsWindowMaximized(resolvedPromise)
@@ -17,11 +21,11 @@ const updateIsWindowMaximized = async () => {
 createEffect(async () => {
   const osname = await getOsType()
   // temporary: https://github.com/agmmnn/tauri-controls/issues/10#issuecomment-1675884962
-  if (osname !== "Darwin") {
+  if (osname !== "macos") {
     updateIsWindowMaximized()
     let unlisten: () => void = () => {}
 
-    const window = appWindow
+    const window = appWindow()
     if (window) {
       unlisten = await window.onResized(() => {
         updateIsWindowMaximized()
@@ -34,15 +38,15 @@ createEffect(async () => {
 })
 
 export const minimizeWindow = async () => {
-  await appWindow.minimize()
+  await appWindow()?.minimize()
 }
 
 export const maximizeWindow = async () => {
-  await appWindow.toggleMaximize()
+  await appWindow()?.toggleMaximize()
 }
 
 export const fullscreenWindow = async () => {
-  const window = appWindow
+  const window = appWindow()
   if (window) {
     const fullscreen = await window.isFullscreen()
     await window.setFullscreen(!fullscreen)
@@ -50,5 +54,5 @@ export const fullscreenWindow = async () => {
 }
 
 export const closeWindow = async () => {
-  await appWindow.close()
+  await appWindow()?.close()
 }
