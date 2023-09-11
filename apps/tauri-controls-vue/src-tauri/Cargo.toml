@@ -10,16 +10,17 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "2.0.0-alpha.6", features = [] }
+tauri-build = { version = "2.0.0-alpha", features = [] }
 
 [dependencies]
-tauri = { version = "2.0.0-alpha.10", features = [ "macos-private-api", "devtools"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-tauri-plugin-os = "2.0.0-alpha.0"
-tauri-plugin-shell = "2.0.0-alpha.0"
-tauri-plugin-cli = "2.0.0-alpha.0"
-tauri-plugin-window = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v2" }
+tauri = { version = "2.0.0-alpha", features = ["macos-private-api"] }
+tauri-plugin-window = "2.0.0-alpha"
+tauri-plugin-os = "2.0.0-alpha"
+tauri-plugin-app = "2.0.0-alpha"
+tauri-plugin-shell = "2.0.0-alpha"
+
 
 [features]
 # by default Tauri runs in production mode
@@ -28,12 +29,3 @@ default = ["custom-protocol"]
 # this feature is used used for production builds where `devPath` points to the filesystem
 # DO NOT remove this
 custom-protocol = ["tauri/custom-protocol"]
-
-# Optimized for bundle size. If you want faster builds comment out/delete this section.
-[profile.release]
-lto = true        # Enable Link Time Optimization
-opt-level = "z"   # Optimize for size.
-codegen-units = 1 # Reduce number of codegen units to increase optimizations.
-panic = "abort"   # Abort on panic
-strip = true      # Automatically strip symbols from the binary.
-debug = false
