@@ -1,5 +1,11 @@
 # @tauri-controls/solid
 
+## 0.2.0
+
+### Minor Changes
+
+- fix: compatibility with the latest Tauri release
+
 ## 0.1.3
 
 ### Patch Changes
