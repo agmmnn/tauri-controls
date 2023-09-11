@@ -26,10 +26,10 @@ export function WindowControls(props: WindowControlsProps) {
     getOsType().then((type) => {
       if (!local.platform) {
         switch (type) {
-          case "Darwin":
+          case "macos":
             local.platform = "macos"
             break
-          case "Linux":
+          case "linux":
             local.platform = "gnome"
             break
           default:

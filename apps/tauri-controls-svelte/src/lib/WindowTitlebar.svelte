@@ -11,7 +11,7 @@
     controlsOrder === "left" ||
     (controlsOrder === "platform" &&
       windowControlsProps?.platform === "macos") ||
-    (controlsOrder === "system" && osType === "Darwin")
+    (controlsOrder === "system" && osType === "macos")
 
   const props = (ml: string) => {
     if (windowControlsProps?.justify !== undefined) return windowControlsProps

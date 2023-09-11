@@ -31,6 +31,9 @@ pnpm add @tauri-controls/svelte
 
 # Solid.js:
 pnpm add @tauri-controls/solid
+
+# Vue.js:
+pnpm add @tauri-controls/vue
 ```
 
 ```bash
@@ -39,7 +42,7 @@ pnpm add @tauri-apps/plugin-os @tauri-apps/plugin-window
 pnpm add -D clsx tailwind-merge
 ```
 
-> For **Svelte** projects, include the following line in the `content` section of your `tailwind.config.js` _(no need for React)_:
+> For **Svelte** projects, include the following line in the `content` section of your `tailwind.config.js`:
 >
 > ```js
 > "./node_modules/@tauri-controls/svelte/**/*.{js,svelte,ts}"
@@ -69,11 +72,9 @@ fn main() {
 
 And simply add the `WindowTitlebar` or `WindowControls` component to your code, depending on your needs:
 
-### WindowTitlebar
+#### WindowTitlebar
 
 The `WindowTitlebar` component handles the window titlebar and dynamically adjusts the **window control buttons** and **titlebar content** order based on the current operating system.
-
-For React:
 
 ```tsx
 import { WindowTitlebar } from "tauri-controls"
@@ -85,25 +86,13 @@ function MyTitlebar() {
 }
 ```
 
-For Svelte:
-
-```svelte
-<script lang="ts">
-  import { WindowTitlebar } from "@tauri-controls/svelte"
-</script>
-
-<WindowTitlebar>{/* Place your titlebar content here */}</WindowTitlebar>
-```
-
 When no platform is specified, the current system will be detected and the matching element will be returned. This feature is a great solution for cross-platform releases.
 
 ![](https://github.com/agmmnn/tauri-controls/assets/16024979/214677d4-dd70-4e6b-96c3-b9d1a1356f05)
 
-### WindowControls
+#### WindowControls
 
 Use the `WindowControls` component only for window controls.
-
-For React:
 
 ```tsx
 import { WindowControls } from "tauri-controls"
@@ -113,22 +102,14 @@ function MyTitlebar() {
 }
 ```
 
-For Svelte:
-
-```svelte
-<script lang="ts">
-  import { WindowTitlebar } from "@tauri-controls/svelte"
-</script>
-
-<WindowControls />
-```
-
 ![](https://github.com/agmmnn/tauri-controls/assets/16024979/7be3dde4-7953-4188-af12-abd4445c0bf9)
 
 ### More examples:
 
 - [in React](https://github.com/agmmnn/tauri-controls/blob/master/apps/tauri-controls/src/App.tsx)
 - [in Svelte](https://github.com/agmmnn/tauri-controls/blob/master/apps/tauri-controls-svelte/src/routes/%2Bpage.svelte)
+- [in Solid.js](https://github.com/agmmnn/tauri-controls/blob/master/apps/tauri-controls-solid/src/App.tsx)
+- [in Vue.js](https://github.com/agmmnn/tauri-controls/blob/master/apps/tauri-controls-vue/src/App.vue)
 
 ## Options
 

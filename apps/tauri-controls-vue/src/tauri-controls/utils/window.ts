@@ -1,11 +1,11 @@
-import type { WebviewWindow } from "@tauri-apps/plugin-window"
+import type { Window } from "@tauri-apps/plugin-window"
 import { ref } from "vue"
 
-export const appWindow = ref<WebviewWindow | null>(null)
+export const appWindow = ref<Window | null>(null)
 export const isWindowMaximized = ref(false)
 
 import("@tauri-apps/plugin-window").then((module) => {
-  appWindow.value = module.appWindow
+  appWindow.value = module.getCurrent()
 })
 
 export const minimizeWindow = async () => {
@@ -18,10 +18,9 @@ export const maximizeWindow = async () => {
 }
 
 export const fullscreenWindow = async () => {
-  const window = appWindow.value
-  if (window) {
-    const fullscreen = await window.isFullscreen()
-    await window.setFullscreen(!fullscreen)
+  if (appWindow) {
+    const fullscreen = await appWindow.value?.isFullscreen()
+    await appWindow.value?.setFullscreen(!fullscreen)
   }
 }
 
