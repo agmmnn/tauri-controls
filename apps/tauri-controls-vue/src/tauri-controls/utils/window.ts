@@ -1,11 +1,11 @@
-import type { Window } from "@tauri-apps/plugin-window"
+import type { window } from "@tauri-apps/api"
 import { ref } from "vue"
 
-export const appWindow = ref<Window | null>(null)
+export const appWindow = ref<window.Window | null>(null)
 export const isWindowMaximized = ref(false)
 
-import("@tauri-apps/plugin-window").then((module) => {
-  appWindow.value = module.getCurrent()
+import("@tauri-apps/api").then((module) => {
+  appWindow.value = module.window.getCurrent()
 })
 
 export const minimizeWindow = async () => {

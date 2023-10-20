@@ -1,12 +1,12 @@
-import type { Window } from "@tauri-apps/plugin-window"
+import { window } from "@tauri-apps/api"
 import { createEffect, createSignal, onCleanup } from "solid-js"
 import { getOsType } from "./plugin-os"
 
-export const [appWindow, setAppWindow] = createSignal<Window | null>(null)
+export const [appWindow, setAppWindow] = createSignal<window.Window | null>(null)
 export const [isWindowMaximized, setIsWindowMaximized] = createSignal(false)
 
-import("@tauri-apps/plugin-window").then((module) => {
-  setAppWindow(module.getCurrent())
+import("@tauri-apps/api").then((module) => {
+  setAppWindow(module.window.getCurrent())
 })
 
 // Update the isWindowMaximized state when the window is resized
@@ -23,7 +23,7 @@ createEffect(async () => {
   // temporary: https://github.com/agmmnn/tauri-controls/issues/10#issuecomment-1675884962
   if (osname !== "macos") {
     updateIsWindowMaximized()
-    let unlisten: () => void = () => {}
+    let unlisten: () => void = () => { }
 
     const window = appWindow()
     if (window) {

@@ -16,7 +16,6 @@ fn main() {
         .invoke_handler(tauri::generate_handler![greet])
         .plugin(tauri_plugin_os::init())
         .plugin(tauri_plugin_shell::init())
-        .plugin(tauri_plugin_window::init())
         .setup(|app| {
             app.get_window("main").unwrap().open_devtools();
             Ok(())

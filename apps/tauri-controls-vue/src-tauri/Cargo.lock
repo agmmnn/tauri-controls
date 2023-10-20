@@ -3292,10 +3292,8 @@ dependencies = [
  "serde_json",
  "tauri",
  "tauri-build",
- "tauri-plugin-app",
  "tauri-plugin-os",
  "tauri-plugin-shell",
- "tauri-plugin-window",
 ]
 
 [[package]]
@@ -3310,15 +3308,6 @@ dependencies = [
  "syn 1.0.109",
  "tauri-codegen",
  "tauri-utils",
-]
-
-[[package]]
-name = "tauri-plugin-app"
-version = "2.0.0-alpha.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b55e543dfb0e446657c7ceaccf2f3d7ced42b6cc70b44b227b1981886f00dccd"
-dependencies = [
- "tauri",
 ]
 
 [[package]]
@@ -3352,17 +3341,6 @@ dependencies = [
  "serde",
  "serde_json",
  "shared_child",
- "tauri",
- "thiserror",
-]
-
-[[package]]
-name = "tauri-plugin-window"
-version = "2.0.0-alpha.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "646c4d192ac58631b56059b5a3b26b254b42dcae91a455a818a22687bb841c39"
-dependencies = [
- "serde",
  "tauri",
  "thiserror",
 ]
