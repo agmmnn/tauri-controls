@@ -1,8 +1,8 @@
-import { window } from "@tauri-apps/api"
+import type { Window } from "@tauri-apps/api/window"
 import { createEffect, createSignal, onCleanup } from "solid-js"
 import { getOsType } from "./plugin-os"
 
-export const [appWindow, setAppWindow] = createSignal<window.Window | null>(null)
+export const [appWindow, setAppWindow] = createSignal<Window | null>(null)
 export const [isWindowMaximized, setIsWindowMaximized] = createSignal(false)
 
 import("@tauri-apps/api").then((module) => {

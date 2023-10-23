@@ -3,7 +3,6 @@
   import Icons from "$lib/components/Icons.svelte"
   import { cn } from "$lib/utils/utils"
   import {
-    appWindow,
     closeWindow,
     initializeAppWindow,
     maximizeWindow,

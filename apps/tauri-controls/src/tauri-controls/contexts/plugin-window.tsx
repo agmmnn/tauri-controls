@@ -1,9 +1,9 @@
-import { window } from "@tauri-apps/api"
+import type { Window } from "@tauri-apps/api/window"
 import React, { createContext, useCallback, useEffect, useState } from "react"
 import { getOsType } from "../libs/plugin-os"
 
 interface TauriAppWindowContextType {
-  appWindow: window.Window | null
+  appWindow: Window | null
   isWindowMaximized: boolean
   minimizeWindow: () => Promise<void>
   maximizeWindow: () => Promise<void>
@@ -27,7 +27,7 @@ interface TauriAppWindowProviderProps {
 export const TauriAppWindowProvider: React.FC<TauriAppWindowProviderProps> = ({
   children,
 }: any) => {
-  const [appWindow, setAppWindow] = useState<window.Window | null>(null)
+  const [appWindow, setAppWindow] = useState<Window | null>(null)
   const [isWindowMaximized, setIsWindowMaximized] = useState(false)
 
   // Fetch the Tauri window plugin when the component mounts

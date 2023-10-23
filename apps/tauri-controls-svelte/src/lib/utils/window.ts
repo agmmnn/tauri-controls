@@ -1,30 +1,32 @@
-import { window } from "@tauri-apps/api"
+import type { Window } from "@tauri-apps/api/window"
+import { writable, type Writable, get } from "svelte/store"
 
-export let appWindow: window.Window
+export let appWindow: Writable<Window | undefined> = writable(undefined);
 
 export const initializeAppWindow = async () => {
-  const { window: windowPlugin } = await import("@tauri-apps/api")
-  appWindow = windowPlugin.getCurrent()
+  import("@tauri-apps/api").then((mod) => {
+    appWindow.set(mod.window.getCurrent());
+  })
 }
 
 export const minimizeWindow = () => {
-  appWindow?.minimize()
+  get(appWindow)?.minimize()
 }
 
 export const maximizeWindow = async () => {
-  await appWindow.toggleMaximize()
+  await get(appWindow)?.toggleMaximize()
 }
 
 export const closeWindow = () => {
-  appWindow.close()
+  get(appWindow)?.close()
 }
 
 export const fullscreenWindow = async () => {
-  const fullscreen = await appWindow?.isFullscreen()
+  const fullscreen = await get(appWindow)?.isFullscreen()
 
   if (fullscreen) {
-    await appWindow.setFullscreen(false)
+    await get(appWindow)?.setFullscreen(false)
   } else {
-    await appWindow.setFullscreen(true)
+    await get(appWindow)?.setFullscreen(true)
   }
 }

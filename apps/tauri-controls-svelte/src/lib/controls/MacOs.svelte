@@ -66,7 +66,7 @@
   on:mouseenter={handleMouseEnter}
   on:mouseleave={handleMouseLeave}
   class={cn(
-    "space-x-2 px-3 text-black active:text-black dark:text-black cursor-default",
+    "cursor-default space-x-2 px-3 text-black active:text-black dark:text-black",
     $$props.class
   )}
 >

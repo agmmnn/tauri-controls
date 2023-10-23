@@ -59,8 +59,8 @@
     "@sveltejs/adapter-auto": "^2.1.0",
     "@sveltejs/kit": "^1.24.1",
     "@sveltejs/package": "^2.2.2",
-    "@tauri-apps/api": "next",
-    "@tauri-apps/cli": "next",
+    "@tauri-apps/api": "2.0.0-alpha.16",
+    "@tauri-apps/cli": "2.0.0-alpha.16",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "autoprefixer": "^10.4.15",
@@ -85,7 +85,7 @@
     "vitest": "^0.34.4"
   },
   "peerDependencies": {
-    "@tauri-apps/plugin-os": "2.0.0-alpha.2",
+    "@tauri-apps/plugin-os": "2.0.0-alpha.3",
     "clsx": "^2.0.0",
     "svelte": "^4.1.2",
     "tailwind-merge": "^1.14.0"
