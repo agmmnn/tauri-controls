@@ -41,7 +41,9 @@
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
-        "nsis": { "installerIcon": "./icons/icon.ico" }
+        "nsis": {
+          "installerIcon": "./icons/icon.ico"
+        }
       }
     },
     "security": {
@@ -50,8 +52,16 @@
         {
           "scheme": "https",
           "domain": "tauri.localhost",
-          "windows": ["main"],
-          "plugins": ["app", "shell", "os", "event", "window"]
+          "windows": [
+            "main"
+          ],
+          "plugins": [
+            "app",
+            "shell",
+            "os",
+            "event",
+            "window"
+          ]
         }
       ]
     },
