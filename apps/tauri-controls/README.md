@@ -38,7 +38,7 @@ pnpm add @tauri-controls/vue
 
 ```bash
 # Install peer dependencies:
-pnpm add @tauri-apps/plugin-os @tauri-apps/plugin-window
+pnpm add @tauri-apps/plugin-os @tauri-apps/api
 pnpm add -D clsx tailwind-merge
 ```
 
