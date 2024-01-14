@@ -37,12 +37,13 @@
   "module": "./dist/tauri-controls.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@tauri-apps/api": "2.0.0-alpha.16",
     "@vueuse/core": "^10.4.1"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.3",
-    "@tauri-apps/cli": "2.0.0-alpha.16",
+    "@tauri-apps/api": "2.0.0-alpha.13",
+    "@tauri-apps/cli": "2.0.0-alpha.20",
+    "@tauri-apps/plugin-os": "2.0.0-alpha.6",
     "@vitejs/plugin-vue": "^4.3.4",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.29",
@@ -54,7 +55,6 @@
     "vue-tsc": "^1.8.10"
   },
   "peerDependencies": {
-    "@tauri-apps/plugin-os": "2.0.0-alpha.3",
     "tailwind-merge": "^1.14.0",
     "vue": "^3.3.4"
   }
