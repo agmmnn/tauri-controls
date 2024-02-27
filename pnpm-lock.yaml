@@ -36,12 +36,6 @@ importers:
 
   apps/tauri-controls:
     dependencies:
-      '@tauri-apps/api':
-        specifier: 2.0.0-alpha.13
-        version: 2.0.0-alpha.13
-      '@tauri-apps/plugin-os':
-        specifier: 2.0.0-alpha.6
-        version: 2.0.0-alpha.6
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -61,9 +55,15 @@ importers:
       '@rollup/plugin-terser':
         specifier: ^0.4.3
         version: 0.4.3(rollup@3.29.1)
+      '@tauri-apps/api':
+        specifier: 2.0.0-alpha.13
+        version: 2.0.0-alpha.13
       '@tauri-apps/cli':
         specifier: 2.0.0-alpha.20
         version: 2.0.0-alpha.20
+      '@tauri-apps/plugin-os':
+        specifier: 2.0.0-alpha.6
+        version: 2.0.0-alpha.6
       '@types/node':
         specifier: ^20.6.0
         version: 20.6.0
@@ -136,12 +136,6 @@ importers:
 
   apps/tauri-controls-solid:
     dependencies:
-      '@tauri-apps/api':
-        specifier: 2.0.0-alpha.13
-        version: 2.0.0-alpha.13
-      '@tauri-apps/plugin-os':
-        specifier: 2.0.0-alpha.6
-        version: 2.0.0-alpha.6
       solid-js:
         specifier: ^1.7.8
         version: 1.7.8
@@ -155,9 +149,15 @@ importers:
       '@rollup/plugin-terser':
         specifier: ^0.4.3
         version: 0.4.3(rollup@3.29.1)
+      '@tauri-apps/api':
+        specifier: 2.0.0-alpha.13
+        version: 2.0.0-alpha.13
       '@tauri-apps/cli':
         specifier: 2.0.0-alpha.20
         version: 2.0.0-alpha.20
+      '@tauri-apps/plugin-os':
+        specifier: 2.0.0-alpha.6
+        version: 2.0.0-alpha.6
       autoprefixer:
         specifier: ^10.4.15
         version: 10.4.15(postcss@8.4.29)
@@ -188,9 +188,6 @@ importers:
 
   apps/tauri-controls-svelte:
     dependencies:
-      '@tauri-apps/plugin-os':
-        specifier: 2.0.0-alpha.6
-        version: 2.0.0-alpha.6
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -225,6 +222,9 @@ importers:
       '@tauri-apps/cli':
         specifier: 2.0.0-alpha.20
         version: 2.0.0-alpha.20
+      '@tauri-apps/plugin-os':
+        specifier: 2.0.0-alpha.6
+        version: 2.0.0-alpha.6
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.7.0
         version: 6.7.0(@typescript-eslint/parser@6.7.0)(eslint@8.49.0)(typescript@5.2.2)
@@ -294,12 +294,6 @@ importers:
 
   apps/tauri-controls-vue:
     dependencies:
-      '@tauri-apps/api':
-        specifier: 2.0.0-alpha.13
-        version: 2.0.0-alpha.13
-      '@tauri-apps/plugin-os':
-        specifier: 2.0.0-alpha.6
-        version: 2.0.0-alpha.6
       '@vueuse/core':
         specifier: ^10.4.1
         version: 10.4.1(vue@3.3.4)
@@ -313,9 +307,15 @@ importers:
       '@rollup/plugin-terser':
         specifier: ^0.4.3
         version: 0.4.3(rollup@3.29.1)
+      '@tauri-apps/api':
+        specifier: 2.0.0-alpha.13
+        version: 2.0.0-alpha.13
       '@tauri-apps/cli':
         specifier: 2.0.0-alpha.20
         version: 2.0.0-alpha.20
+      '@tauri-apps/plugin-os':
+        specifier: 2.0.0-alpha.6
+        version: 2.0.0-alpha.6
       '@vitejs/plugin-vue':
         specifier: ^4.3.4
         version: 4.3.4(vite@4.4.9)(vue@3.3.4)
@@ -1924,6 +1924,7 @@ packages:
   /@tauri-apps/api@2.0.0-alpha.13:
     resolution: {integrity: sha512-sGgCkFahF3OZAHoGN5Ozt9WK7wJlbVZSgWpPQKNag4nSOX1+Py6VDRTEWriiJHDiV+gg31CWHnNXRy6TFoZmdA==}
     engines: {node: '>= 18', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
+    dev: true
 
   /@tauri-apps/cli-darwin-arm64@2.0.0-alpha.20:
     resolution: {integrity: sha512-L+6OYTjKA42U7XXLQDxoUb43hcKSU8mJ4T3PMCuE08jtv4p6MNfcJQ9FwBCYV6XqYmqE1s5AEBGxR4wBk7bbXQ==}
@@ -2036,7 +2037,7 @@ packages:
     resolution: {integrity: sha512-ld5p56TiWxnGHCysEfHLmRH5+Lz7rzDRC5H5WzofVNPiqp4ra1O5y1lNOWklE01Rm5P1c0t1PbUVdNGpeYA3GQ==}
     dependencies:
       '@tauri-apps/api': 2.0.0-alpha.13
-    dev: false
+    dev: true
 
   /@tootallnate/once@2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}

@@ -1,10 +1,19 @@
-import { Match, mergeProps, onMount, splitProps, Switch } from "solid-js"
+import {
+  createSignal,
+  Match,
+  mergeProps,
+  onMount,
+  splitProps,
+  Switch,
+} from "solid-js"
 import { twMerge } from "tailwind-merge"
 import { Gnome, MacOS, Windows } from "./controls"
 import { getOsType } from "./libs/plugin-os"
 import type { WindowControlsProps } from "./types"
 
 export function WindowControls(props: WindowControlsProps) {
+  const [platform, setPlatform] = createSignal(props.platform)
+
   const [rawLocal, otherProps] = splitProps(props, [
     "class",
     "hideMethod",
@@ -27,13 +36,13 @@ export function WindowControls(props: WindowControlsProps) {
       if (!local.platform) {
         switch (type) {
           case "macos":
-            local.platform = "macos"
+            setPlatform("macos")
             break
           case "linux":
-            local.platform = "gnome"
+            setPlatform("gnome")
             break
           default:
-            local.platform = "windows"
+            setPlatform("windows")
         }
       }
     })
@@ -55,19 +64,19 @@ export function WindowControls(props: WindowControlsProps) {
         />
       }
     >
-      <Match when={local.platform === "windows"}>
+      <Match when={platform() === "windows"}>
         <Windows
           class={twMerge(customClass, local.justify && "ml-auto")}
           {...otherProps}
         />
       </Match>
-      <Match when={local.platform === "macos"}>
+      <Match when={platform() === "macos"}>
         <MacOS
           class={twMerge(customClass, local.justify && "ml-0")}
           {...otherProps}
         />
       </Match>
-      <Match when={local.platform === "gnome"}>
+      <Match when={platform() === "gnome"}>
         <Gnome
           class={twMerge(customClass, local.justify && "ml-auto")}
           {...otherProps}
