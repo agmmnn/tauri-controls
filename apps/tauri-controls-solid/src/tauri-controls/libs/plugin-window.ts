@@ -23,7 +23,7 @@ createEffect(async () => {
   // temporary: https://github.com/agmmnn/tauri-controls/issues/10#issuecomment-1675884962
   if (osname !== "macos") {
     updateIsWindowMaximized()
-    let unlisten: () => void = () => { }
+    let unlisten: () => void = () => {}
 
     const window = appWindow()
     if (window) {
