@@ -1,25 +1,25 @@
 {
-  "productName": "tauri-ui",
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "productName": "tauri-demos",
   "identifier": "com.yourname.dev",
   "build": {
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "bun run dev",
+    "beforeBuildCommand": "bun run build",
     "devUrl": "http://localhost:1422",
     "frontendDist": "../dist"
   },
   "app": {
+    "macOSPrivateApi": true,
     "security": {
       "csp": null
     },
-    "macOSPrivateApi": true,
     "windows": [
       {
-        "fullscreen": false,
-        "title": "Demo-Svelte",
+        "title": "Demo-Solid",
         "center": true,
-        "resizable": true,
-        "decorations": false,
         "transparent": true,
+        "decorations": false,
+        "resizable": true,
         "width": 1000,
         "height": 800
       }

@@ -3,19 +3,18 @@
   "productName": "tauri-demos",
   "identifier": "com.yourname.dev",
   "build": {
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "bun run dev",
+    "beforeBuildCommand": "bun run build",
     "devUrl": "http://localhost:1423",
     "frontendDist": "../dist"
   },
   "app": {
+    "macOSPrivateApi": true,
     "security": {
       "csp": null
     },
-    "macOSPrivateApi": true,
     "windows": [
       {
-        "fullscreen": false,
         "title": "Demo-Solid",
         "center": true,
         "transparent": true,
