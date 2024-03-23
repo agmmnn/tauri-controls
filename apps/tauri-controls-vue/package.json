@@ -2,7 +2,7 @@
   "name": "@tauri-controls/vue",
   "description": "🚥 Native-looking window controls for Tauri 2.",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.4.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
