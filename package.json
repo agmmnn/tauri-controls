@@ -1,6 +1,8 @@
 {
   "name": "tauri-controls-root",
   "private": true,
+  "version": "1.0.0",
+  "workspaces": ["apps/*"],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
