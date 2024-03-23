@@ -1,6 +1,8 @@
 {
   "name": "tauri-controls-root",
   "private": true,
+  "version": "1.0.0",
+  "workspaces": ["apps/*"],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -15,16 +17,16 @@
     "tauri:dev": "turbo run tauri:dev"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@tauri-apps/api": "2.0.0-alpha.13",
-    "@turbo/gen": "^1.10.16",
-    "eslint": "^8.51.0",
-    "eslint-config-custom": "workspace:*",
-    "prettier": "^3.0.3",
-    "turbo": "1.10.16"
+    "@changesets/cli": "^2.27.1",
+    "@tauri-apps/api": "2.0.0-beta.6",
+    "@turbo/gen": "^1.13.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "taze": "^0.13.3",
+    "turbo": "1.13"
   },
-  "packageManager": "pnpm@8.7.5",
+  "packageManager": "bun@1.0.35",
   "dependencies": {
-    "@changesets/changelog-git": "^0.1.14"
+    "@changesets/changelog-git": "^0.2.0"
   }
 }

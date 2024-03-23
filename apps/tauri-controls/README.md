@@ -24,22 +24,22 @@ The following designs are taken as reference:
 
 ```bash
 # React:
-pnpm add tauri-controls
+bun add tauri-controls
 
 # Svelte:
-pnpm add @tauri-controls/svelte
+bun add @tauri-controls/svelte
 
 # Solid.js:
-pnpm add @tauri-controls/solid
+bun add @tauri-controls/solid
 
 # Vue.js:
-pnpm add @tauri-controls/vue
+bun add @tauri-controls/vue
 ```
 
 ```bash
 # Install peer dependencies:
-pnpm add @tauri-apps/plugin-os @tauri-apps/api
-pnpm add -D clsx tailwind-merge
+bun add @tauri-apps/plugin-os @tauri-apps/api
+bun add -D clsx tailwind-merge
 ```
 
 > For **Svelte** projects, include the following line in the `content` section of your `tailwind.config.js`:
@@ -145,9 +145,9 @@ These sources were utilized:
 ## Development and Contribution
 
 ```bash
-pnpm dev
+bun dev
 
-pnpm tauri:dev
+bun tauri:dev
 ```
 
 Project Structure:

@@ -1,64 +1,18 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "productName": "tauri-demos",
+  "identifier": "com.yourname.dev",
   "build": {
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build",
-    "devPath": "http://localhost:1412",
-    "distDir": "../dist",
-    "withGlobalTauri": false
+    "beforeDevCommand": "bun run dev",
+    "beforeBuildCommand": "bun run build",
+    "devUrl": "http://localhost:1412",
+    "frontendDist": "../dist"
   },
-  "package": {
-    "productName": "tauri-demos"
-  },
-  "tauri": {
-    "bundle": {
-      "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
-      "deb": {
-        "depends": []
-      },
-      "externalBin": [],
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
-      "identifier": "com.yourname.dev",
-      "longDescription": "",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
-      "resources": [],
-      "shortDescription": "",
-      "targets": "all",
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": "",
-        "nsis": {
-          "installerIcon": "./icons/icon.ico"
-        }
-      }
-    },
-    "security": {
-      "csp": null,
-      "dangerousRemoteDomainIpcAccess": [
-        {
-          "scheme": "https",
-          "domain": "tauri.localhost",
-          "windows": ["main"],
-          "plugins": ["event", "shell", "os", "window"]
-        }
-      ]
-    },
+  "app": {
     "macOSPrivateApi": true,
+    "security": {
+      "csp": null
+    },
     "windows": [
       {
         "fullscreen": false,
@@ -70,6 +24,39 @@
         "width": 1000,
         "height": 800
       }
-    ]
+    ],
+    "withGlobalTauri": false
+  },
+  "bundle": {
+    "active": true,
+    "category": "DeveloperTool",
+    "copyright": "",
+    "externalBin": [],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "longDescription": "",
+    "macOS": {
+      "entitlements": null,
+      "exceptionDomain": "",
+      "frameworks": [],
+      "providerShortName": null,
+      "signingIdentity": null
+    },
+    "resources": [],
+    "shortDescription": "",
+    "targets": "all",
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "",
+      "nsis": {
+        "installerIcon": "./icons/icon.ico"
+      }
+    }
   }
 }

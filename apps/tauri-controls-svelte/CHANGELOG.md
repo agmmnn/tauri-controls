@@ -1,5 +1,18 @@
 # @tauri-controls/svelte
 
+## 0.4.0
+
+### Minor Changes
+
+- fix: compatibility with the latest Tauri V2 release
+  chore: switch package manager from pnpm to bun
+
+## 0.3.0
+
+### Minor Changes
+
+- fix: Remove all Tauri dependencies from the list of dependecies. This will require the user to install these (which were already in the instructions), but allow for more control of a single version of these packages. #20, thanks to @jbolda
+
 ## 0.2.0
 
 ### Minor Changes

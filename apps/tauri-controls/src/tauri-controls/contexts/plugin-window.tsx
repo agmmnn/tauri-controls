@@ -54,7 +54,7 @@ export const TauriAppWindowProvider: React.FC<TauriAppWindowProviderProps> = ({
       // temporary: https://github.com/agmmnn/tauri-controls/issues/10#issuecomment-1675884962
       if (osname !== "macos") {
         updateIsWindowMaximized()
-        let unlisten: () => void = () => { }
+        let unlisten: () => void = () => {}
 
         const listen = async () => {
           if (appWindow) {
