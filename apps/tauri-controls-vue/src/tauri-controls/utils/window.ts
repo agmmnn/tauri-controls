@@ -6,6 +6,9 @@ export const isWindowMaximized = ref(false)
 
 import("@tauri-apps/api").then((module) => {
   appWindow.value = module.window.getCurrent()
+  appWindow.value.onResized(async () => {
+    isWindowMaximized.value = await appWindow.isMaximized()
+  })
 })
 
 export const minimizeWindow = async () => {
@@ -14,7 +17,6 @@ export const minimizeWindow = async () => {
 
 export const maximizeWindow = async () => {
   await appWindow.value?.toggleMaximize()
-  isWindowMaximized.value = !isWindowMaximized.value
 }
 
 export const fullscreenWindow = async () => {
