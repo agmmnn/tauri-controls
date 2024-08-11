@@ -1,45 +1,36 @@
-import { mergeProps, splitProps } from "solid-js"
+import { createMemo, mergeProps, splitProps } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import { getOsType } from "./libs/plugin-os"
 import type { WindowTitlebarProps } from "./types"
 import { WindowControls } from "./window-controls"
 
 export function WindowTitlebar(props: WindowTitlebarProps) {
-  const [rawLocal, otherProps] = splitProps(props, [
+  const [local, otherProps] = splitProps(props, [
     "children",
     "controlsOrder",
     "class",
     "windowControlsProps",
   ])
 
-  const local = mergeProps(
-    {
-      controlsOrder: "system",
-    },
-    rawLocal
-  )
-
-  const left = () =>
-    local.controlsOrder === "left" ||
-    (local.controlsOrder === "platform" &&
-      local.windowControlsProps?.platform === "macos") ||
-    (local.controlsOrder === "system" && getOsType() === "macos")
-
-  const customProps = (ml: string) => {
-    if (local.windowControlsProps?.justify !== undefined)
-      return local.windowControlsProps
-
-    const {
-      justify: windowControlsJustify,
-      class: windowControlsClassName,
-      ...restProps
-    } = local.windowControlsProps || {}
-    return {
-      justify: false,
-      class: twMerge(windowControlsClassName, ml),
-      ...restProps,
+  const left = createMemo(() => {
+    if (local.controlsOrder === "left") return true
+    if (local.controlsOrder === "right") return false
+    if (local.controlsOrder === "platform") {
+      return (local.windowControlsProps?.platform ?? getOsType()) === "macos"
     }
-  }
+    // `local.controlsOrder` defaults to "system"
+    return getOsType() === "macos"
+  })
+
+  const windowControlsProps = mergeProps(local.windowControlsProps, {
+    justify: false,
+    get class() {
+      const ml = left() ? "ml-0" : "ml-auto"
+      return twMerge(local.windowControlsProps?.class, ml)
+    },
+  })
+
+  const controls = <WindowControls {...windowControlsProps} />
 
   return (
     <div
@@ -50,17 +41,7 @@ export function WindowTitlebar(props: WindowTitlebarProps) {
       data-tauri-drag-region
       {...otherProps}
     >
-      {left() ? (
-        <>
-          <WindowControls {...customProps("ml-0")} />
-          {local.children}
-        </>
-      ) : (
-        <>
-          {local.children}
-          <WindowControls {...customProps("ml-auto")} />
-        </>
-      )}
+      {left() ? [controls, local.children] : [local.children, controls]}
     </div>
   )
 }

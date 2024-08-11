@@ -1,11 +1,11 @@
-import { Match, mergeProps, splitProps, Switch } from "solid-js"
+import { createMemo, Match, splitProps, Switch } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import { Gnome, MacOS, Windows } from "./controls"
 import { getPlatform } from "./libs/plugin-os"
 import type { WindowControlsProps } from "./types"
 
 export function WindowControls(props: WindowControlsProps) {
-  const [rawLocal, otherProps] = splitProps(props, [
+  const [local, otherProps] = splitProps(props, [
     "class",
     "hideMethod",
     "hide",
@@ -13,49 +13,28 @@ export function WindowControls(props: WindowControlsProps) {
     "justify",
   ])
 
-  const local = mergeProps(
-    {
-      justify: false,
-      hide: false,
-      hideMethod: "display",
-      platform: getPlatform(),
-    },
-    rawLocal
-  )
-
-  const customClass = twMerge(
-    "flex",
-    local.class,
-    local.hide && (local.hideMethod === "display" ? "hidden" : "invisible")
-  )
-
   // Determine the default platform based on the operating system if not specified
+  const platform = createMemo(() => local.platform ?? getPlatform())
+
+  const hideMethod = () => local.hideMethod ?? "display"
+  const className = () =>
+    twMerge(
+      "flex",
+      local.class,
+      local.hide && (hideMethod() === "display" ? "hidden" : "invisible"),
+      local.justify && (platform() === "macos" ? "ml-0" : "ml-auto")
+    )
+
   return (
-    <Switch
-      fallback={
-        <Windows
-          class={twMerge(customClass, local.justify && "ml-auto")}
-          {...otherProps}
-        />
-      }
-    >
-      <Match when={local.platform === "windows"}>
-        <Windows
-          class={twMerge(customClass, local.justify && "ml-auto")}
-          {...otherProps}
-        />
+    <Switch>
+      <Match when={platform() === "macos"}>
+        <MacOS class={className()} {...otherProps} />
       </Match>
-      <Match when={local.platform === "macos"}>
-        <MacOS
-          class={twMerge(customClass, local.justify && "ml-0")}
-          {...otherProps}
-        />
+      <Match when={platform() === "gnome"}>
+        <Gnome class={className()} {...otherProps} />
       </Match>
-      <Match when={local.platform === "gnome"}>
-        <Gnome
-          class={twMerge(customClass, local.justify && "ml-auto")}
-          {...otherProps}
-        />
+      <Match when={true}>
+        <Windows class={className()} {...otherProps} />
       </Match>
     </Switch>
   )
