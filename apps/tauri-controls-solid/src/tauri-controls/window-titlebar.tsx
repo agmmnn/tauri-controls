@@ -1,13 +1,10 @@
-import type { OsType } from "@tauri-apps/plugin-os"
-import { createSignal, mergeProps, onMount, splitProps } from "solid-js"
+import { mergeProps, splitProps } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import { getOsType } from "./libs/plugin-os"
 import type { WindowTitlebarProps } from "./types"
 import { WindowControls } from "./window-controls"
 
 export function WindowTitlebar(props: WindowTitlebarProps) {
-  const [osType, setOsType] = createSignal<OsType | undefined>(undefined)
-
   const [rawLocal, otherProps] = splitProps(props, [
     "children",
     "controlsOrder",
@@ -22,17 +19,11 @@ export function WindowTitlebar(props: WindowTitlebarProps) {
     rawLocal
   )
 
-  onMount(() => {
-    getOsType().then((type) => {
-      setOsType(type)
-    })
-  })
-
   const left = () =>
     local.controlsOrder === "left" ||
     (local.controlsOrder === "platform" &&
       local.windowControlsProps?.platform === "macos") ||
-    (local.controlsOrder === "system" && osType() === "macos")
+    (local.controlsOrder === "system" && getOsType() === "macos")
 
   const customProps = (ml: string) => {
     if (local.windowControlsProps?.justify !== undefined)

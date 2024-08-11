@@ -1,7 +1,7 @@
-import { Match, mergeProps, onMount, splitProps, Switch } from "solid-js"
+import { Match, mergeProps, splitProps, Switch } from "solid-js"
 import { twMerge } from "tailwind-merge"
 import { Gnome, MacOS, Windows } from "./controls"
-import { getOsType } from "./libs/plugin-os"
+import { getPlatform } from "./libs/plugin-os"
 import type { WindowControlsProps } from "./types"
 
 export function WindowControls(props: WindowControlsProps) {
@@ -18,26 +18,10 @@ export function WindowControls(props: WindowControlsProps) {
       justify: false,
       hide: false,
       hideMethod: "display",
+      platform: getPlatform(),
     },
     rawLocal
   )
-
-  onMount(() => {
-    getOsType().then((type) => {
-      if (!local.platform) {
-        switch (type) {
-          case "macos":
-            local.platform = "macos"
-            break
-          case "linux":
-            local.platform = "gnome"
-            break
-          default:
-            local.platform = "windows"
-        }
-      }
-    })
-  })
 
   const customClass = twMerge(
     "flex",
