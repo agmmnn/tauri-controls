@@ -46,8 +46,8 @@
     "@tauri-apps/cli": "2.0.0-beta.11",
     "@tauri-apps/plugin-os": "2.0.0-beta.2",
     "@types/node": "^20.11.30",
-    "@types/react": "^18.2.69",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.2.69 || ^19.0.0",
+    "@types/react-dom": "^18.2.22 || ^19.0.0",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
     "@vitejs/plugin-react-swc": "^3.6.0",
@@ -71,8 +71,8 @@
   },
   "peerDependencies": {
     "clsx": "^2.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwind-merge": "^1.14.0"
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0",
+    "tailwind-merge": "^1.14.0 || ^2.0.0"
   }
 }
