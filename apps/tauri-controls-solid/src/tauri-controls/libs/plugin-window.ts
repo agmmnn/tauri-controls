@@ -1,58 +1,30 @@
-import type { Window } from "@tauri-apps/api/window"
-import { createEffect, createSignal, onCleanup } from "solid-js"
-import { getOsType } from "./plugin-os"
+import { getCurrentWindow } from "@tauri-apps/api/window"
+import { createSignal } from "solid-js"
 
-export const [appWindow, setAppWindow] = createSignal<Window | null>(null)
-export const [isWindowMaximized, setIsWindowMaximized] = createSignal(false)
+const [isWindowMaximized, setIsWindowMaximized] = createSignal(false)
+export { isWindowMaximized }
 
-import("@tauri-apps/api").then((module) => {
-  setAppWindow(module.window.getCurrent())
-})
-
-// Update the isWindowMaximized state when the window is resized
-const updateIsWindowMaximized = async () => {
-  const window = appWindow()
-  if (window) {
-    const resolvedPromise = await window.isMaximized()
-    setIsWindowMaximized(resolvedPromise)
-  }
+const watchWindowMaximized = () => {
+  const window = getCurrentWindow()
+  window.isMaximized().then(setIsWindowMaximized)
+  window.onResized(() => window.isMaximized().then(setIsWindowMaximized))
 }
-
-createEffect(async () => {
-  const osname = await getOsType()
-  // temporary: https://github.com/agmmnn/tauri-controls/issues/10#issuecomment-1675884962
-  if (osname !== "macos") {
-    updateIsWindowMaximized()
-    let unlisten: () => void = () => {}
-
-    const window = appWindow()
-    if (window) {
-      unlisten = await window.onResized(() => {
-        updateIsWindowMaximized()
-      })
-    }
-
-    // Cleanup the listener when the component unmounts
-    unlisten && onCleanup(unlisten)
-  }
-})
+watchWindowMaximized()
 
 export const minimizeWindow = async () => {
-  await appWindow()?.minimize()
+  await getCurrentWindow().minimize()
 }
 
 export const maximizeWindow = async () => {
-  await appWindow()?.toggleMaximize()
+  await getCurrentWindow().toggleMaximize()
 }
 
 export const fullscreenWindow = async () => {
-  const window = appWindow()
-  if (window) {
-    const fullscreen = await window.isFullscreen()
-    await window.setFullscreen(!fullscreen)
-  }
+  const window = getCurrentWindow()
+  const fullscreen = await window.isFullscreen()
+  await window.setFullscreen(!fullscreen)
 }
 
 export const closeWindow = async () => {
-  await appWindow()?.close()
+  await getCurrentWindow()?.close()
 }
