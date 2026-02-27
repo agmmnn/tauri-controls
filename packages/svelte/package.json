@@ -1,0 +1,44 @@
+{
+  "name": "@tauri-controls/svelte",
+  "description": "Native-looking window controls for Tauri 2 (Svelte).",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "svelte-package -i src",
+    "build:watch": "svelte-package -i src --watch",
+    "dev": "svelte-package -i src --watch"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agmmnn/tauri-controls"
+  },
+  "author": "agmmnn",
+  "files": [
+    "dist"
+  ],
+  "svelte": "./dist/index.js",
+  "exports": {
+    ".": {
+      "svelte": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@tauri-controls/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/package": "^2.5.7",
+    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "svelte": "^5.53.5",
+    "typescript": "^5.9.3"
+  }
+}

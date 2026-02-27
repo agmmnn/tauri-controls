@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@source "../../../../packages/core/src/**/*.ts";
+@source "../../../../packages/svelte/src/**/*.svelte";
+@source "../../../../packages/vue/src/**/*.vue";

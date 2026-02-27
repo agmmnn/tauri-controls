@@ -1,0 +1,57 @@
+{
+  "name": "@tauri-controls/solid",
+  "description": "Native-looking window controls for Tauri 2 (Solid.js).",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "dev": "tsup --watch"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agmmnn/tauri-controls"
+  },
+  "author": "agmmnn",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "solid": {
+      "development": "./dist/dev.jsx",
+      "import": "./dist/index.jsx"
+    },
+    "development": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/dev.js"
+      }
+    },
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@tauri-controls/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.7.0"
+  },
+  "devDependencies": {
+    "solid-js": "^1.9.11",
+    "tsup": "^8.5.1",
+    "tsup-preset-solid": "^2.2.0",
+    "typescript": "^5.9.3"
+  },
+  "main": "./dist/index.js",
+  "browser": {},
+  "typesVersions": {}
+}

@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro"
+import ReactDemo from "../components/react/Demo"
+import SolidDemo from "../components/solid/Demo"
+import SvelteDemo from "../components/svelte/Demo.svelte"
+import VueDemo from "../components/vue/Demo.vue"
+---
+
+<Layout title="Tauri Controls Playground">
+  <div class="grid grid-cols-2 gap-0 min-h-screen">
+    <!-- React -->
+    <div class="border-r border-b border-gray-700 flex flex-col">
+      <div class="bg-gray-800/50 px-3 py-1 text-xs text-gray-400 font-mono border-b border-gray-700">
+        React
+      </div>
+      <div class="flex-1 bg-gray-900/80">
+        <ReactDemo client:only="react" />
+      </div>
+    </div>
+
+    <!-- Solid -->
+    <div class="border-b border-gray-700 flex flex-col">
+      <div class="bg-gray-800/50 px-3 py-1 text-xs text-gray-400 font-mono border-b border-gray-700">
+        Solid
+      </div>
+      <div class="flex-1 bg-gray-900/80">
+        <SolidDemo client:only="solid-js" />
+      </div>
+    </div>
+
+    <!-- Svelte -->
+    <div class="border-r border-gray-700 flex flex-col">
+      <div class="bg-gray-800/50 px-3 py-1 text-xs text-gray-400 font-mono border-b border-gray-700">
+        Svelte
+      </div>
+      <div class="flex-1 bg-gray-900/80">
+        <SvelteDemo client:only="svelte" />
+      </div>
+    </div>
+
+    <!-- Vue -->
+    <div class="flex flex-col">
+      <div class="bg-gray-800/50 px-3 py-1 text-xs text-gray-400 font-mono border-b border-gray-700">
+        Vue
+      </div>
+      <div class="flex-1 bg-gray-900/80">
+        <VueDemo client:only="vue" />
+      </div>
+    </div>
+  </div>
+</Layout>
