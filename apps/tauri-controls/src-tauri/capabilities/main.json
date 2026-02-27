@@ -12,6 +12,8 @@
     "core:window:allow-set-fullscreen",
     "core:window:allow-set-simple-fullscreen",
     "core:window:allow-set-focus",
+    "core:window:allow-outer-size",
+    "core:window:allow-set-size",
     "core:window:allow-is-maximized",
     "core:window:allow-is-fullscreen",
     "shell:default",

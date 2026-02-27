@@ -43,6 +43,7 @@ function WindowsControls({ windowApi, isMaximized, className }: PlatformControls
 function MacOSControls({ windowApi, className }: Omit<PlatformControlsProps, "isMaximized">) {
   const [isAltKeyPressed, setIsAltKeyPressed] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
+  const [isFocused, setIsFocused] = useState(() => document.hasFocus())
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => { if (e.key === "Alt") setIsAltKeyPressed(true) }
@@ -55,21 +56,34 @@ function MacOSControls({ windowApi, className }: Omit<PlatformControlsProps, "is
     }
   }, [])
 
+  useEffect(() => {
+    const onFocus = () => setIsFocused(true)
+    const onBlur = () => setIsFocused(false)
+    window.addEventListener("focus", onFocus)
+    window.addEventListener("blur", onBlur)
+    return () => {
+      window.removeEventListener("focus", onFocus)
+      window.removeEventListener("blur", onBlur)
+    }
+  }, [])
+
+  const dot = (active: string) => isFocused ? active : styles.macos.inactive
+
   return (
     <div
       className={cn(styles.macos.container, className)}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <Button onClick={() => windowApi.close()} className={cn(styles.macos.button, styles.macos.close)}>
+      <Button onClick={() => windowApi.close()} className={cn(styles.macos.button, dot(styles.macos.close))}>
         {isHovering && <Icons.closeMac />}
       </Button>
-      <Button onClick={() => windowApi.minimize()} className={cn(styles.macos.button, styles.macos.minimize)}>
+      <Button onClick={() => windowApi.minimize()} className={cn(styles.macos.button, dot(styles.macos.minimize))}>
         {isHovering && <Icons.minMac />}
       </Button>
       <Button
         onClick={() => (isAltKeyPressed ? windowApi.maximize() : windowApi.fullscreen())}
-        className={cn(styles.macos.button, styles.macos.fullscreen)}
+        className={cn(styles.macos.button, dot(styles.macos.fullscreen))}
       >
         {isHovering && (isAltKeyPressed ? <Icons.plusMac /> : <Icons.fullMac />)}
       </Button>

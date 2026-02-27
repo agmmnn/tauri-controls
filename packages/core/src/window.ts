@@ -1,4 +1,5 @@
 import { getCurrentWindow } from "@tauri-apps/api/window"
+import { PhysicalSize } from "@tauri-apps/api/dpi"
 import { detectPlatform } from "./platform"
 
 export interface WindowControls {
@@ -113,7 +114,12 @@ export function createWindowControls(): WindowControls {
           clearTimeout(debounce)
           clearTimeout(safety)
           try {
-            await win.setFocus()
+            // After zoom animation, WKWebView's NSTrackingArea is registered for the
+            // old bounds. A 1px resize triggers setFrame: → updateTrackingAreas,
+            // re-registering tracking for the new bounds and restoring hover/mouse events.
+            const size = await win.outerSize()
+            await win.setSize(new PhysicalSize(size.width + 1, size.height))
+            await win.setSize(new PhysicalSize(size.width, size.height))
             const maximized = await win.isMaximized()
             notifySubscribers(maximized)
           } catch {}
